@@ -3649,6 +3649,93 @@
                     }
                 }
             }
+			// ==================== 通知功能 ====================
+			function showNotification(message, type = 'info', duration = 3000) {
+			    // 1. 移除可能存在的旧通知
+			    const oldNotification = document.getElementById('speech-notification');
+			    if (oldNotification) {
+			        oldNotification.remove();
+			    }
+			
+			    // 2. 创建新的通知元素
+			    const notification = document.createElement('div');
+			    notification.id = 'speech-notification';
+			    
+			    // 根据类型设置颜色
+			    let bgColor, emoji;
+			    switch(type) {
+			        case 'error':
+			            bgColor = '#f44336'; // 红色
+			            emoji = '❌';
+			            break;
+			        case 'warning':
+			            bgColor = '#ff9800'; // 橙色
+			            emoji = '⚠️';
+			            break;
+			        case 'success':
+			            bgColor = '#4CAF50'; // 绿色
+			            emoji = '✅';
+			            break;
+			        case 'info':
+			        default:
+			            bgColor = '#2196F3'; // 蓝色
+			            emoji = '🔊';
+			    }
+			    
+			    notification.innerHTML = `
+			        <div style="
+			            position: fixed;
+			            top: 100px;
+			            right: 20px;
+			            z-index: 9999;
+			            background: ${bgColor};
+			            color: white;
+			            padding: 12px 20px;
+			            border-radius: 8px;
+			            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+			            max-width: 300px;
+			            font-size: 0.95rem;
+			            animation: slideIn 0.3s ease-out;
+			        ">
+			            <div style="display: flex; align-items: center; gap: 10px;">
+			                <span style="font-size: 1.2rem;">${emoji}</span>
+			                <span>${message}</span>
+			            </div>
+			        </div>
+			    `;
+			
+			    // 3. 添加到页面
+			    document.body.appendChild(notification);
+			
+			    // 4. 添加淡出动画样式（如果尚未添加）
+			    if (!document.getElementById('notification-styles')) {
+			        const style = document.createElement('style');
+			        style.id = 'notification-styles';
+			        style.textContent = `
+			            @keyframes slideIn {
+			                from { transform: translateX(100%); opacity: 0; }
+			                to { transform: translateX(0); opacity: 1; }
+			            }
+			            @keyframes fadeOut {
+			                from { opacity: 1; }
+			                to { opacity: 0; }
+			            }
+			        `;
+			        document.head.appendChild(style);
+			    }
+			
+			    // 5. 自动消失
+			    setTimeout(() => {
+			        if (notification.parentNode) {
+			            notification.style.animation = 'fadeOut 0.3s ease-out';
+			            setTimeout(() => {
+			                if (notification.parentNode) {
+			                    notification.remove();
+			                }
+			            }, 300);
+			        }
+			    }, duration);
+			}
             // 设备检测和优化
             function getDeviceInfo() {
                 const ua = navigator.userAgent;
@@ -3931,57 +4018,7 @@
 			    }, 150); // 稍微增加延迟，确保调试信息清晰
 			}
 
-			function toggleLearned(wordId, category) {
-			    const word = vocabularyData[category].find(w => w.id === wordId);
-			    if (word) {
-			        const wasLearned = word.learned;
-			        word.learned = !word.learned;
-			        
-			        // 如果标记为已掌握，取消需复习状态
-			        if (word.learned) {
-			            word.needReview = false;
-			        }
-			        
-			        console.log(`📝 切换学习状态: ${word.word} - 已掌握: ${wasLearned} -> ${word.learned}`);
-			        
-			        // 保存进度
-			        saveProgress();
-			        
-			        // 立即更新统计
-			        updateStats();
-			        
-			        // 如果当前在词汇页面，重新渲染
-			        if (appState.currentView === 'vocabulary') {
-			            renderVocabulary();
-			        }
-			    }
-			}
 			
-			function toggleReview(wordId, category) {
-			    const word = vocabularyData[category].find(w => w.id === wordId);
-			    if (word) {
-			        const wasReview = word.needReview;
-			        word.needReview = !word.needReview;
-			        
-			        // 如果标记为需复习，取消已掌握状态
-			        if (word.needReview) {
-			            word.learned = false;
-			        }
-			        
-			        console.log(`🔄 切换复习状态: ${word.word} - 需复习: ${wasReview} -> ${word.needReview}`);
-			        
-			        // 保存进度
-			        saveProgress();
-			        
-			        // 立即更新统计
-			        updateStats();
-			        
-			        // 如果当前在词汇页面，重新渲染
-			        if (appState.currentView === 'vocabulary') {
-			            renderVocabulary();
-			        }
-			    }
-			}
             // 显示需要复习的词汇
             function showReviewVocabulary() {
                 console.log('🔄 显示需要复习的词汇');
@@ -4196,6 +4233,7 @@
 			        console.log('ℹ️ 没有找到保存的学习进度');
 			    }
 			}
+			
 
 			function updateStats() {
 			    console.log('📊 updateStats() 被调用');
