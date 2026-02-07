@@ -1,0 +1,4643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>IGCSE生物高频词汇</title>
+		<!-- iOS Safari 优化 -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="生物词汇">
+		<!-- Android Chrome 优化 -->
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="theme-color" content="#2c3e6d">
+		<!-- 添加到主屏幕图标 -->
+		<link rel="icon"
+			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+
+		<style>
+			/* 移动端优化样式 */
+			:root {
+				--primary: #2c3e6d;
+				--secondary: #4a6fa5;
+				--accent: #5d7ab9;
+				--success: #4CAF50;
+				--warning: #FF9800;
+				--danger: #F44336;
+				--light: #f0f7ff;
+				--card: #ffffff;
+				--text: #333;
+				--border: #d1ddf0;
+				--safe-top: env(safe-area-inset-top);
+				--safe-bottom: env(safe-area-inset-bottom);
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				-webkit-tap-highlight-color: transparent;
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+			}
+
+			html {
+				font-size: 16px;
+				height: 100%;
+				-webkit-text-size-adjust: 100%;
+			}
+
+			body {
+				background: linear-gradient(135deg, #f8fbff 0%, #eef5ff 100%);
+				color: var(--text);
+				line-height: 1.5;
+				min-height: 100vh;
+				min-height: -webkit-fill-available;
+				padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+				overscroll-behavior-y: none;
+			}
+
+			/* 移动端容器 */
+			.mobile-container {
+				max-width: 100%;
+				min-height: 100vh;
+				background: var(--card);
+				position: relative;
+			}
+
+			/* 顶部固定栏 */
+			.mobile-header {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				background: linear-gradient(135deg, var(--primary) 0%, #3a5795 100%);
+				color: white;
+				padding: 12px 16px;
+				padding-top: calc(12px + var(--safe-top, 0px));
+				z-index: 1000;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.header-title {
+				flex: 1;
+			}
+
+			.header-title h1 {
+				font-size: 1.3rem;
+				font-weight: 600;
+				margin-bottom: 2px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.header-subtitle {
+				font-size: 0.85rem;
+				opacity: 0.9;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.header-actions {
+				display: flex;
+				gap: 10px;
+				margin-left: 10px;
+			}
+
+			.header-btn {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background: rgba(255, 255, 255, 0.15);
+				border: none;
+				color: white;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				transition: all 0.2s;
+			}
+
+			.header-btn:hover {
+				background: rgba(255, 255, 255, 0.25);
+			}
+
+			/* 主内容区域 */
+			.mobile-content {
+				padding: 70px 0 60px;
+				min-height: 100vh;
+			}
+
+			/* 底部导航栏 */
+			.mobile-nav {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background: white;
+				border-top: 1px solid var(--border);
+				padding: 8px 0;
+				padding-bottom: calc(8px + var(--safe-bottom, 0px));
+				z-index: 1000;
+				display: flex;
+				justify-content: space-around;
+			}
+
+			.nav-item {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding: 8px 4px;
+				color: #666;
+				text-decoration: none;
+				font-size: 0.75rem;
+				transition: all 0.2s;
+			}
+
+			.nav-item.active {
+				color: var(--accent);
+			}
+
+			.nav-icon {
+				font-size: 1.2rem;
+				margin-bottom: 4px;
+			}
+
+			/* 搜索栏 */
+			.mobile-search {
+				padding: 15px;
+				background: white;
+				border-bottom: 1px solid var(--border);
+				position: sticky;
+				top: 60px;
+				z-index: 999;
+			}
+
+			.search-wrapper {
+				position: relative;
+			}
+
+			.search-input {
+				width: 100%;
+				padding: 12px 45px 12px 15px;
+				border: 2px solid var(--border);
+				border-radius: 25px;
+				font-size: 1rem;
+				background: #f8f9fa;
+				transition: all 0.3s;
+			}
+
+			.search-input:focus {
+				outline: none;
+				border-color: var(--accent);
+				background: white;
+				box-shadow: 0 0 0 3px rgba(93, 122, 185, 0.1);
+			}
+
+			.search-btn {
+				position: absolute;
+				right: 10px;
+				top: 50%;
+				transform: translateY(-50%);
+				background: none;
+				border: none;
+				color: var(--accent);
+				font-size: 1.2rem;
+				cursor: pointer;
+			}
+
+			/* 筛选标签 */
+			.filter-tags-mobile {
+				display: flex;
+				overflow-x: auto;
+				padding: 15px;
+				gap: 10px;
+				background: white;
+				-webkit-overflow-scrolling: touch;
+				scrollbar-width: none;
+			}
+
+			.filter-tags-mobile::-webkit-scrollbar {
+				display: none;
+			}
+
+			.filter-tag {
+				flex-shrink: 0;
+				padding: 8px 16px;
+				background: white;
+				border: 2px solid var(--border);
+				border-radius: 20px;
+				font-size: 0.9rem;
+				white-space: nowrap;
+				cursor: pointer;
+				transition: all 0.3s;
+			}
+
+			.filter-tag.active {
+				background: var(--accent);
+				color: white;
+				border-color: var(--accent);
+			}
+
+			/* 词汇卡片 - 移动端优化 */
+			.vocab-list {
+				padding: 15px;
+			}
+
+			.vocab-item-mobile {
+				background: white;
+				border-radius: 12px;
+				padding: 20px;
+				margin-bottom: 15px;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+				border-left: 4px solid var(--accent);
+				transition: all 0.3s;
+				position: relative;
+			}
+
+			.vocab-item-mobile:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			}
+
+			.vocab-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				margin-bottom: 12px;
+			}
+
+			.vocab-word {
+				font-size: 1.4rem;
+				font-weight: bold;
+				color: var(--primary);
+				margin-bottom: 4px;
+			}
+
+			.vocab-phonetic {
+				color: #666;
+				font-style: italic;
+				font-size: 0.9rem;
+				margin-bottom: 6px;
+			}
+
+			.vocab-frequency {
+				background: var(--accent);
+				color: white;
+				padding: 4px 10px;
+				border-radius: 15px;
+				font-size: 0.8rem;
+				font-weight: bold;
+			}
+
+			.vocab-definition {
+				margin: 12px 0;
+				line-height: 1.6;
+				font-size: 1rem;
+			}
+
+			.vocab-example {
+				background: var(--light);
+				padding: 15px;
+				border-radius: 8px;
+				font-size: 0.95rem;
+				border-left: 3px solid var(--success);
+				margin: 12px 0;
+			}
+
+			.vocab-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 6px;
+				margin-top: 10px;
+			}
+
+			.vocab-tag {
+				background: #e3f2fd;
+				color: #1565c0;
+				padding: 4px 10px;
+				border-radius: 12px;
+				font-size: 0.8rem;
+			}
+
+			/* 学习状态按钮 */
+			.vocab-actions {
+				display: flex;
+				gap: 10px;
+				margin-top: 15px;
+			}
+
+			.action-btn {
+				flex: 1;
+				padding: 10px;
+				border: none;
+				border-radius: 8px;
+				font-size: 0.9rem;
+				font-weight: 500;
+				cursor: pointer;
+				transition: all 0.3s;
+			}
+
+			.action-btn.learned {
+				background: #e8f5e9;
+				color: #2e7d32;
+			}
+
+			.action-btn.learned.active {
+				background: #4CAF50;
+				color: white;
+			}
+
+			.action-btn.review {
+				background: #fff3e0;
+				color: #ef6c00;
+			}
+
+			.action-btn.review.active {
+				background: #FF9800;
+				color: white;
+			}
+			/* 发音相关样式 */
+			.speak-btn {
+			    transition: all 0.3s ease !important;
+			    position: relative !important;
+			}
+			
+			.speak-btn:hover {
+			    background: rgba(93, 122, 185, 0.2) !important;
+			    border-color: var(--accent) !important;
+			    transform: scale(1.1);
+			}
+			
+			.speak-btn:active {
+			    transform: scale(0.95);
+			}
+			
+			/* 发音中的动画效果 */
+			.speak-btn.speaking {
+			    background: rgba(0, 100, 0, 0.15) !important;
+			    border-color: #006400 !important;
+			    color: #006400 !important;
+			    animation: speaking-pulse 1.5s infinite;
+			}
+			
+			@keyframes speaking-pulse {
+			    0% {
+			        box-shadow: 0 0 0 0 rgba(0, 100, 0, 0.4);
+			    }
+			    70% {
+			        box-shadow: 0 0 0 8px rgba(0, 100, 0, 0);
+			    }
+			    100% {
+			        box-shadow: 0 0 0 0 rgba(0, 100, 0, 0);
+			    }
+			}
+			
+			/* 声波动画 */
+			.sound-wave {
+			    position: absolute;
+			    width: 100%;
+			    height: 100%;
+			    border-radius: 50%;
+			    opacity: 0.5;
+			}
+			
+			.speak-btn.speaking .sound-wave {
+			    animation: sound-wave 1s infinite;
+			}
+			
+			@keyframes sound-wave {
+			    0% {
+			        transform: scale(1);
+			        opacity: 0.5;
+			    }
+			    100% {
+			        transform: scale(1.5);
+			        opacity: 0;
+			    }
+			}
+			
+			/* 英音徽章 */
+			.accent-badge {
+			    font-size: 0.75rem;
+			    background: linear-gradient(135deg, rgba(0, 100, 0, 0.1), rgba(0, 100, 0, 0.2));
+			    color: #006400;
+			    padding: 3px 10px;
+			    border-radius: 12px;
+			    border: 1px solid rgba(0, 100, 0, 0.3);
+			    font-weight: 500;
+			}
+			
+			/* 暗色模式适配 */
+			@media (prefers-color-scheme: dark) {
+			    .speak-btn {
+			        background: rgba(255, 255, 255, 0.1) !important;
+			        border-color: rgba(255, 255, 255, 0.2) !important;
+			    }
+			    
+			    .speak-btn:hover {
+			        background: rgba(255, 255, 255, 0.2) !important;
+			    }
+			    
+			    .speak-btn.speaking {
+			        background: rgba(100, 200, 100, 0.2) !important;
+			        border-color: #64c864 !important;
+			        color: #64c864 !important;
+			    }
+			    
+			    .accent-badge {
+			        background: rgba(100, 200, 100, 0.2);
+			        color: #64c864;
+			        border-color: rgba(100, 200, 100, 0.4);
+			    }
+			}
+
+			/* 分类卡片 */
+			.category-cards {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 15px;
+				padding: 15px;
+			}
+
+			.category-card {
+				background: white;
+				border-radius: 15px;
+				padding: 20px;
+				text-align: center;
+				box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+				cursor: pointer;
+				transition: all 0.3s;
+			}
+
+			.category-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			}
+
+			.category-icon {
+				font-size: 2.5rem;
+				margin-bottom: 10px;
+				display: block;
+			}
+
+			.category-title {
+				font-weight: bold;
+				color: var(--primary);
+				margin-bottom: 5px;
+			}
+
+			.category-count {
+				color: #666;
+				font-size: 0.9rem;
+			}
+
+			/* 进度统计 */
+			.stats-grid {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 15px;
+				padding: 15px;
+			}
+
+			.stat-card {
+				background: white;
+				border-radius: 12px;
+				padding: 20px;
+				text-align: center;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+			}
+
+			.stat-number {
+				font-size: 2rem;
+				font-weight: bold;
+				color: var(--primary);
+				margin-bottom: 5px;
+			}
+
+			.stat-label {
+				color: #666;
+				font-size: 0.9rem;
+			}
+
+			/* 加载动画 */
+			.loading {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 40px 15px;
+			}
+
+			.spinner {
+				width: 40px;
+				height: 40px;
+				border: 3px solid var(--light);
+				border-top-color: var(--accent);
+				border-radius: 50%;
+				animation: spin 1s linear infinite;
+			}
+
+			@keyframes spin {
+				to {
+					transform: rotate(360deg);
+				}
+			}
+
+			/* 空状态 */
+			.empty-state {
+				text-align: center;
+				padding: 60px 15px;
+				color: #666;
+			}
+
+			.empty-icon {
+				font-size: 3rem;
+				margin-bottom: 15px;
+				opacity: 0.5;
+			}
+
+			/* 工具页面 */
+			.tools-grid {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 15px;
+				padding: 15px;
+			}
+
+			.tool-card {
+				background: white;
+				border-radius: 15px;
+				padding: 25px 15px;
+				text-align: center;
+				box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+				cursor: pointer;
+				transition: all 0.3s;
+			}
+
+			.tool-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			}
+
+			.tool-icon {
+				font-size: 2.5rem;
+				margin-bottom: 15px;
+				display: block;
+			}
+
+			/* 下拉刷新和上拉加载 */
+			.pull-to-refresh {
+				text-align: center;
+				padding: 15px;
+				color: #666;
+				font-size: 0.9rem;
+			}
+
+			/* 响应式调整 */
+			@media (max-width: 320px) {
+				html {
+					font-size: 14px;
+				}
+
+				.category-cards,
+				.tools-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			@media (min-width: 768px) {
+				.mobile-container {
+					max-width: 768px;
+					margin: 0 auto;
+				}
+
+				.category-cards {
+					grid-template-columns: repeat(3, 1fr);
+				}
+			}
+
+			/* 暗色模式支持 */
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--primary: #5d7ab9;
+					--secondary: #4a6fa5;
+					--accent: #6b8cd9;
+					--light: #1a2332;
+					--card: #2d3748;
+					--text: #e2e8f0;
+					--border: #4a5568;
+				}
+
+				body {
+					background: #1a202c;
+				}
+
+				.vocab-item-mobile,
+				.category-card,
+				.stat-card,
+				.tool-card {
+					background: #2d3748;
+				}
+
+				.search-input {
+					background: #4a5568;
+					color: white;
+					border-color: #4a5568;
+				}
+
+				.mobile-nav {
+					background: #2d3748;
+					border-top-color: #4a5568;
+				}
+
+				.nav-item {
+					color: #a0aec0;
+				}
+
+				.nav-item.active {
+					color: var(--accent);
+				}
+			}
+
+			/* 打印样式 */
+			@media print {
+
+				.mobile-header,
+				.mobile-nav,
+				.mobile-search,
+				.filter-tags-mobile,
+				.vocab-actions {
+					display: none !important;
+				}
+
+				.mobile-content {
+					padding: 0;
+				}
+
+				.vocab-item-mobile {
+					break-inside: avoid;
+					box-shadow: none !important;
+					border: 1px solid #ddd !important;
+					margin-bottom: 20px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mobile-container">
+			<!-- 顶部固定栏 -->
+			<div class="mobile-header">
+				<div class="header-title">
+					<h1>📚 IGCSE生物高频词汇</h1>
+					<div class="header-subtitle">187个必考词汇 • 移动学习版</div>
+				</div>
+				<div class="header-actions">
+					<button class="header-btn" onclick="downloadWord()" title="下载">
+						📥
+					</button>
+					<button class="header-btn" onclick="toggleDarkMode()" title="暗色模式">
+						🌙
+					</button>
+				</div>
+			</div>
+
+			<!-- 搜索栏 -->
+			<div class="mobile-search" id="searchSection">
+				<div class="search-wrapper">
+					<input type="text" class="search-input" id="searchInput" placeholder="搜索词汇...">
+					<button class="search-btn" onclick="searchVocabulary()">🔍</button>
+				</div>
+			</div>
+
+			<!-- 筛选标签 -->
+			<div class="filter-tags-mobile" id="filterTags">
+				<!-- 动态生成 -->
+			</div>
+
+			<!-- 主内容区域 -->
+			<div class="mobile-content" id="contentArea">
+				<!-- 动态生成 -->
+			</div>
+
+			<!-- 底部导航栏 -->
+			<div class="mobile-nav">
+				<a href="#" class="nav-item active" onclick="showHome()">
+					<span class="nav-icon">🏠</span>
+					<span>首页</span>
+				</a>
+				<a href="#" class="nav-item" onclick="showCategories()">
+					<span class="nav-icon">📚</span>
+					<span>分类</span>
+				</a>
+				<a href="#" class="nav-item" onclick="showAllVocabulary()">
+					<span class="nav-icon">🔤</span>
+					<span>词汇</span>
+				</a>
+				<a href="#" class="nav-item" onclick="showTools()">
+					<span class="nav-icon">🛠️</span>
+					<span>工具</span>
+				</a>
+				<a href="#" class="nav-item" onclick="showStats()">
+					<span class="nav-icon">📊</span>
+					<span>统计</span>
+				</a>
+			</div>
+		</div>
+
+		<!-- 所有JavaScript代码放在这里 -->
+		<script>
+			// ==================== 分类筛选映射配置 ====================
+
+			// 分类名称与筛选ID的对应关系
+			const categoryFilterMap = {
+				'指令词': 'command',
+				'实验词汇': 'experiment',
+				'过程描述': 'process',
+				'比较连接': 'compare',
+				'生物动词': 'biology'
+			};
+
+			// ==================== 词汇数据 ====================
+			const vocabularyData = {
+				"指令词": [{
+						id: 1,
+						word: "State",
+						phonetic: "/steɪt/",
+						type: "动词",
+						definition: "陈述，说明（给出一个词、短语或简短答案，无需解释）",
+						example: "<strong>Q:</strong> State one function of the nucleus.<br><strong>A:</strong> Controls cell activities.",
+						frequency: "high",
+						tags: ["答题指令", "必考"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 2,
+						word: "Name",
+						phonetic: "/neɪm/",
+						type: "动词",
+						definition: "命名，说出名称",
+						example: "<strong>Q:</strong> Name the process by which plants make food.<br><strong>A:</strong> Photosynthesis.",
+						frequency: "high",
+						tags: ["答题指令"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 3,
+						word: "Describe",
+						phonetic: "/dɪˈskraɪb/",
+						type: "动词",
+						definition: "描述（陈述事实或现象，说出'发生了什么'）",
+						example: "<strong>Q:</strong> Describe the trend shown in the graph.<br><strong>A:</strong> The rate increases rapidly at first, then gradually slows down.",
+						frequency: "high",
+						tags: ["答题指令", "过程描述"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 4,
+						word: "Explain",
+						phonetic: "/ɪkˈspleɪn/",
+						type: "动词",
+						definition: "解释（说明原因或机制，说出'为什么'）",
+						example: "<strong>Q:</strong> Explain why enzymes are denatured at high temperatures.<br><strong>A:</strong> Because the active site changes shape, so substrate cannot bind.",
+						frequency: "high",
+						tags: ["答题指令", "因果解释"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 5,
+						word: "Compare",
+						phonetic: "/kəmˈpeər/",
+						type: "动词",
+						definition: "比较（指出相似点和不同点）",
+						example: "<strong>Q:</strong> Compare aerobic and anaerobic respiration.<br><strong>A:</strong> Both release energy, but aerobic requires oxygen whereas anaerobic does not.",
+						frequency: "high",
+						tags: ["答题指令", "比较"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 6,
+						word: "Suggest",
+						phonetic: "/səˈdʒest/",
+						type: "动词",
+						definition: "提出，建议（基于知识提出合理推论）",
+						example: "<strong>Q:</strong> Suggest why the results might be inaccurate.<br><strong>A:</strong> Possible human error in measurement.",
+						frequency: "high",
+						tags: ["答题指令", "推理"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 7,
+						word: "Calculate",
+						phonetic: "/ˈkælkjuleɪt/",
+						type: "动词",
+						definition: "计算",
+						example: "<strong>Q:</strong> Calculate the mean of the three measurements.",
+						frequency: "medium",
+						tags: ["答题指令", "数学"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 8,
+						word: "Define",
+						phonetic: "/dɪˈfaɪn/",
+						type: "动词",
+						definition: "下定义",
+						example: "<strong>Q:</strong> Define the term 'homeostasis'.",
+						frequency: "medium",
+						tags: ["答题指令"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 9,
+						word: "Outline",
+						phonetic: "/ˈaʊtlaɪn/",
+						type: "动词",
+						definition: "概述，简要说明",
+						example: "<strong>Q:</strong> Outline the process of protein synthesis.",
+						frequency: "medium",
+						tags: ["答题指令"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 10,
+						word: "Predict",
+						phonetic: "/prɪˈdɪkt/",
+						type: "动词",
+						definition: "预测",
+						example: "<strong>Q:</strong> Predict what would happen if temperature increases further.",
+						frequency: "medium",
+						tags: ["答题指令", "推理"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 11,
+						word: "Evaluate",
+						phonetic: "/ɪˈvæljueɪt/",
+						type: "动词",
+						definition: "评估，评价",
+						example: "<strong>Q:</strong> Evaluate the effectiveness of this method.",
+						frequency: "medium",
+						tags: ["答题指令", "分析"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 12,
+						word: "Discuss",
+						phonetic: "/dɪˈskʌs/",
+						type: "动词",
+						definition: "讨论",
+						example: "<strong>Q:</strong> Discuss the advantages and disadvantages of genetic engineering.",
+						frequency: "medium",
+						tags: ["答题指令"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 13,
+						word: "Justify",
+						phonetic: "/ˈdʒʌstɪfaɪ/",
+						type: "动词",
+						definition: "证明...合理",
+						example: "<strong>Q:</strong> Justify your answer using data from the table.",
+						frequency: "low",
+						tags: ["答题指令"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 14,
+						word: "Sketch",
+						phonetic: "/sketʃ/",
+						type: "动词",
+						definition: "绘制草图",
+						example: "<strong>Q:</strong> Sketch a graph to show the relationship between light intensity and rate of photosynthesis.",
+						frequency: "low",
+						tags: ["答题指令", "绘图"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 15,
+						word: "Determine",
+						phonetic: "/dɪˈtɜːrmɪn/",
+						type: "动词",
+						definition: "确定",
+						example: "<strong>Q:</strong> Determine the concentration from the graph.",
+						frequency: "low",
+						tags: ["答题指令"],
+						learned: false,
+						needReview: false
+					}
+				],
+
+				"实验词汇": [{
+						id: 16,
+						word: "Investigate",
+						phonetic: "/ɪnˈvestɪɡeɪt/",
+						type: "动词",
+						definition: "调查，研究",
+						example: "The experiment investigates the effect of temperature on enzyme activity.",
+						frequency: "high",
+						tags: ["实验操作"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 17,
+						word: "Observe",
+						phonetic: "/əbˈzɜːrv/",
+						type: "动词",
+						definition: "观察",
+						example: "Observe the color change in the solution over 5 minutes.",
+						frequency: "high",
+						tags: ["实验操作"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 18,
+						word: "Record",
+						phonetic: "/ˈrekɔːrd/",
+						type: "动词",
+						definition: "记录",
+						example: "Record your results in a table.",
+						frequency: "high",
+						tags: ["实验操作"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 19,
+						word: "Measure",
+						phonetic: "/ˈmeʒər/",
+						type: "动词",
+						definition: "测量",
+						example: "Measure the volume of oxygen produced every minute.",
+						frequency: "high",
+						tags: ["实验操作"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 20,
+						word: "Repeat",
+						phonetic: "/rɪˈpiːt/",
+						type: "动词",
+						definition: "重复",
+						example: "Repeat the experiment three times for reliability.",
+						frequency: "high",
+						tags: ["实验操作"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 21,
+						word: "Control",
+						phonetic: "/kənˈtrəʊl/",
+						type: "名词/动词",
+						definition: "控制（变量）",
+						example: "Keep light intensity as a control variable.",
+						frequency: "high",
+						tags: ["实验变量"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 22,
+						word: "Variable",
+						phonetic: "/ˈveəriəbl/",
+						type: "名词",
+						definition: "变量",
+						example: "Identify the independent and dependent variables.",
+						frequency: "high",
+						tags: ["实验变量"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 23,
+						word: "Procedure",
+						phonetic: "/prəˈsiːdʒər/",
+						type: "名词",
+						definition: "步骤，程序",
+						example: "Follow the procedure carefully to ensure safety.",
+						frequency: "medium",
+						tags: ["实验操作"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 24,
+						word: "Method",
+						phonetic: "/ˈmeθəd/",
+						type: "名词",
+						definition: "方法",
+						example: "Describe the method used in this investigation.",
+						frequency: "medium",
+						tags: ["实验操作"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 25,
+						word: "Apparatus",
+						phonetic: "/ˌæpəˈreɪtəs/",
+						type: "名词",
+						definition: "仪器，装置",
+						example: "Set up the apparatus as shown in the diagram.",
+						frequency: "medium",
+						tags: ["实验设备"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 26,
+						word: "Bunsen burner",
+						phonetic: "/ˈbʌnsən ˈbɜːrnər/",
+						type: "名词",
+						definition: "本生灯",
+						example: "Heat the solution using a Bunsen burner.",
+						frequency: "medium",
+						tags: ["实验设备", "加热"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 27,
+						word: "Test tube",
+						phonetic: "/test tjuːb/",
+						type: "名词",
+						definition: "试管",
+						example: "Place the enzyme solution in a test tube.",
+						frequency: "medium",
+						tags: ["实验设备"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 28,
+						word: "Beaker",
+						phonetic: "/ˈbiːkər/",
+						type: "名词",
+						definition: "烧杯",
+						example: "Measure 50cm³ of water into a beaker.",
+						frequency: "medium",
+						tags: ["实验设备"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 29,
+						word: "Measuring cylinder",
+						phonetic: "/ˈmeʒərɪŋ ˈsɪlɪndər/",
+						type: "名词",
+						definition: "量筒",
+						example: "Use a measuring cylinder to measure the volume accurately.",
+						frequency: "medium",
+						tags: ["实验设备", "测量"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 30,
+						word: "Pipette",
+						phonetic: "/pɪˈpet/",
+						type: "名词",
+						definition: "移液管",
+						example: "Transfer 5cm³ of solution using a pipette.",
+						frequency: "medium",
+						tags: ["实验设备", "测量"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 31,
+						word: "Microscope",
+						phonetic: "/ˈmaɪkrəskəʊp/",
+						type: "名词",
+						definition: "显微镜",
+						example: "Observe the cells under a microscope.",
+						frequency: "high",
+						tags: ["实验设备", "观察"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 32,
+						word: "Slide",
+						phonetic: "/slaɪd/",
+						type: "名词",
+						definition: "载玻片",
+						example: "Place the specimen on a microscope slide.",
+						frequency: "medium",
+						tags: ["实验设备"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 33,
+						word: "Coverslip",
+						phonetic: "/ˈkʌvəslɪp/",
+						type: "名词",
+						definition: "盖玻片",
+						example: "Gently lower a coverslip over the specimen.",
+						frequency: "medium",
+						tags: ["实验设备"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 34,
+						word: "Thermometer",
+						phonetic: "/θərˈmɒmɪtər/",
+						type: "名词",
+						definition: "温度计",
+						example: "Use a thermometer to monitor the temperature.",
+						frequency: "high",
+						tags: ["实验设备", "测量"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 35,
+						word: "pH meter",
+						phonetic: "/ˌpiːˈeɪtʃ ˈmiːtər/",
+						type: "名词",
+						definition: "pH计",
+						example: "Measure the pH using a pH meter.",
+						frequency: "medium",
+						tags: ["实验设备", "测量"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 36,
+						word: "Balance",
+						phonetic: "/ˈbæləns/",
+						type: "名词",
+						definition: "天平",
+						example: "Weigh the substance using an electronic balance.",
+						frequency: "medium",
+						tags: ["实验设备", "测量"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 37,
+						word: "Safety goggles",
+						phonetic: "/ˈseɪfti ˈɡɒɡlz/",
+						type: "名词",
+						definition: "安全护目镜",
+						example: "Wear safety goggles to protect your eyes.",
+						frequency: "high",
+						tags: ["实验安全"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 38,
+						word: "Lab coat",
+						phonetic: "/læb kəʊt/",
+						type: "名词",
+						definition: "实验服",
+						example: "Wear a lab coat to protect your clothes.",
+						frequency: "medium",
+						tags: ["实验安全"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 39,
+						word: "Hazard",
+						phonetic: "/ˈhæzərd/",
+						type: "名词",
+						definition: "危险",
+						example: "Identify potential hazards before starting.",
+						frequency: "medium",
+						tags: ["实验安全"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 40,
+						word: "Precaution",
+						phonetic: "/prɪˈkɔːʃn/",
+						type: "名词",
+						definition: "预防措施",
+						example: "Take necessary precautions when handling chemicals.",
+						frequency: "medium",
+						tags: ["实验安全"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 41,
+						word: "Ventilation",
+						phonetic: "/ˌventɪˈleɪʃn/",
+						type: "名词",
+						definition: "通风",
+						example: "Work in a well-ventilated area.",
+						frequency: "medium",
+						tags: ["实验安全"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 42,
+						word: "Data",
+						phonetic: "/ˈdeɪtə/",
+						type: "名词",
+						definition: "数据",
+						example: "Collect data at regular intervals.",
+						frequency: "high",
+						tags: ["数据分析"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 43,
+						word: "Results",
+						phonetic: "/rɪˈzʌlts/",
+						type: "名词",
+						definition: "结果",
+						example: "Present your results in a table.",
+						frequency: "high",
+						tags: ["数据分析"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 44,
+						word: "Conclusion",
+						phonetic: "/kənˈkluːʒn/",
+						type: "名词",
+						definition: "结论",
+						example: "Draw a conclusion based on your results.",
+						frequency: "high",
+						tags: ["数据分析"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 45,
+						word: "Reliable",
+						phonetic: "/rɪˈlaɪəbl/",
+						type: "形容词",
+						definition: "可靠的",
+						example: "Repeat readings to ensure reliable results.",
+						frequency: "high",
+						tags: ["数据分析"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 46,
+						word: "Valid",
+						phonetic: "/ˈvælɪd/",
+						type: "形容词",
+						definition: "有效的",
+						example: "Control variables to make the experiment valid.",
+						frequency: "high",
+						tags: ["数据分析"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 47,
+						word: "Anomaly",
+						phonetic: "/əˈnɒməli/",
+						type: "名词",
+						definition: "异常值",
+						example: "One result was an anomaly and was excluded from the mean.",
+						frequency: "medium",
+						tags: ["数据分析"],
+						learned: false,
+						needReview: false
+					}
+				],
+
+				"过程描述": [{
+						id: 48,
+						word: "Increase",
+						phonetic: "/ɪnˈkriːs/",
+						type: "动词",
+						definition: "增加，上升",
+						example: "The rate of reaction increases with temperature.",
+						frequency: "high",
+						tags: ["变化趋势"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 49,
+						word: "Decrease",
+						phonetic: "/dɪˈkriːs/",
+						type: "动词",
+						definition: "减少，下降",
+						example: "Enzyme activity decreases above the optimum temperature.",
+						frequency: "high",
+						tags: ["变化趋势"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 50,
+						word: "Gradually",
+						phonetic: "/ˈɡrædʒuəli/",
+						type: "副词",
+						definition: "逐渐地",
+						example: "The temperature increases gradually over time.",
+						frequency: "high",
+						tags: ["变化趋势"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 51,
+						word: "Rapidly",
+						phonetic: "/ˈræpɪdli/",
+						type: "副词",
+						definition: "迅速地",
+						example: "The reaction occurs rapidly at 40°C.",
+						frequency: "high",
+						tags: ["变化趋势"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 52,
+						word: "Constant",
+						phonetic: "/ˈkɒnstənt/",
+						type: "形容词",
+						definition: "恒定的",
+						example: "Keep the pH constant throughout the experiment.",
+						frequency: "high",
+						tags: ["变化趋势"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 53,
+						word: "Fluctuate",
+						phonetic: "/ˈflʌktʃueɪt/",
+						type: "动词",
+						definition: "波动",
+						example: "The results fluctuate due to experimental error.",
+						frequency: "medium",
+						tags: ["变化趋势"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 54,
+						word: "Peak",
+						phonetic: "/piːk/",
+						type: "名词",
+						definition: "峰值",
+						example: "Enzyme activity reaches a peak at 37°C.",
+						frequency: "medium",
+						tags: ["变化趋势"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 55,
+						word: "Plateau",
+						phonetic: "/ˈplætəʊ/",
+						type: "名词",
+						definition: "平台期，平稳",
+						example: "The graph shows a plateau after 30 minutes.",
+						frequency: "medium",
+						tags: ["变化趋势"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 56,
+						word: "Minimum",
+						phonetic: "/ˈmɪnɪməm/",
+						type: "名词",
+						definition: "最小值",
+						example: "The minimum rate occurs at 0°C.",
+						frequency: "medium",
+						tags: ["变化趋势"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 57,
+						word: "Above",
+						phonetic: "/əˈbʌv/",
+						type: "介词",
+						definition: "在...上面",
+						example: "The temperature was maintained above 20°C.",
+						frequency: "medium",
+						tags: ["空间位置"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 58,
+						word: "Below",
+						phonetic: "/bɪˈləʊ/",
+						type: "介词",
+						definition: "在...下面",
+						example: "The enzyme works best below 40°C.",
+						frequency: "medium",
+						tags: ["空间位置"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 59,
+						word: "Inside",
+						phonetic: "/ɪnˈsaɪd/",
+						type: "介词",
+						definition: "在...内部",
+						example: "Diffusion occurs inside the cell.",
+						frequency: "medium",
+						tags: ["空间位置"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 60,
+						word: "Outside",
+						phonetic: "/ˌaʊtˈsaɪd/",
+						type: "介词",
+						definition: "在...外部",
+						example: "Waste products move outside the cell.",
+						frequency: "medium",
+						tags: ["空间位置"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 61,
+						word: "Between",
+						phonetic: "/bɪˈtwiːn/",
+						type: "介词",
+						definition: "在...之间",
+						example: "Exchange occurs between alveoli and capillaries.",
+						frequency: "high",
+						tags: ["空间位置"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 62,
+						word: "Initially",
+						phonetic: "/ɪˈnɪʃəli/",
+						type: "副词",
+						definition: "最初，开始时",
+						example: "Initially, the rate increases rapidly.",
+						frequency: "medium",
+						tags: ["时间顺序"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 63,
+						word: "Subsequently",
+						phonetic: "/ˈsʌbsɪkwəntli/",
+						type: "副词",
+						definition: "随后，接着",
+						example: "Subsequently, the rate begins to decrease.",
+						frequency: "medium",
+						tags: ["时间顺序"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 64,
+						word: "Finally",
+						phonetic: "/ˈfaɪnəli/",
+						type: "副词",
+						definition: "最后",
+						example: "Finally, the reaction stops completely.",
+						frequency: "high",
+						tags: ["时间顺序"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 65,
+						word: "Simultaneously",
+						phonetic: "/ˌsɪməlˈteɪniəsli/",
+						type: "副词",
+						definition: "同时地",
+						example: "Both processes occur simultaneously.",
+						frequency: "medium",
+						tags: ["时间顺序"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 66,
+						word: "Prior to",
+						phonetic: "/ˈpraɪər tuː/",
+						type: "介词短语",
+						definition: "在...之前",
+						example: "Prior to the experiment, calibrate the equipment.",
+						frequency: "medium",
+						tags: ["时间顺序"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 67,
+						word: "Following",
+						phonetic: "/ˈfɒləʊɪŋ/",
+						type: "介词",
+						definition: "在...之后",
+						example: "Following digestion, absorption occurs.",
+						frequency: "high",
+						tags: ["时间顺序"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 68,
+						word: "Significantly",
+						phonetic: "/sɪɡˈnɪfɪkəntli/",
+						type: "副词",
+						definition: "显著地",
+						example: "The results differ significantly from the expected values.",
+						frequency: "high",
+						tags: ["程度副词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 69,
+						word: "Slightly",
+						phonetic: "/ˈslaɪtli/",
+						type: "副词",
+						definition: "轻微地",
+						example: "The pH changes slightly during the reaction.",
+						frequency: "high",
+						tags: ["程度副词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 70,
+						word: "Approximately",
+						phonetic: "/əˈprɒksɪmətli/",
+						type: "副词",
+						definition: "大约",
+						example: "The volume is approximately 25cm³.",
+						frequency: "medium",
+						tags: ["程度副词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 71,
+						word: "Completely",
+						phonetic: "/kəmˈpliːtli/",
+						type: "副词",
+						definition: "完全地",
+						example: "The enzyme is completely denatured at 60°C.",
+						frequency: "medium",
+						tags: ["程度副词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 72,
+						word: "Partially",
+						phonetic: "/ˈpɑːʃəli/",
+						type: "副词",
+						definition: "部分地",
+						example: "The substrate is partially digested.",
+						frequency: "medium",
+						tags: ["程度副词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 73,
+						word: "Continuous",
+						phonetic: "/kənˈtɪnjuəs/",
+						type: "形容词",
+						definition: "连续的",
+						example: "There is a continuous supply of oxygen.",
+						frequency: "medium",
+						tags: ["其他描述"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 74,
+						word: "Cyclic",
+						phonetic: "/ˈsaɪklɪk/",
+						type: "形容词",
+						definition: "周期性的",
+						example: "The Calvin cycle is a cyclic process.",
+						frequency: "medium",
+						tags: ["其他描述"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 75,
+						word: "Random",
+						phonetic: "/ˈrændəm/",
+						type: "形容词",
+						definition: "随机的",
+						example: "The errors are random rather than systematic.",
+						frequency: "medium",
+						tags: ["其他描述"],
+						learned: false,
+						needReview: false
+					}
+				],
+
+				"比较连接": [{
+						id: 76,
+						word: "Whereas",
+						phonetic: "/werˈæz/",
+						type: "连词",
+						definition: "而，然而（强调对比）",
+						example: "Plant cells have cell walls whereas animal cells do not.",
+						frequency: "high",
+						tags: ["比较", "连接词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 77,
+						word: "Similarly",
+						phonetic: "/ˈsɪmələli/",
+						type: "副词",
+						definition: "类似地",
+						example: "Similarly, both processes require energy input.",
+						frequency: "high",
+						tags: ["比较", "连接词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 78,
+						word: "In contrast",
+						type: "短语",
+						definition: "相比之下",
+						example: "In contrast, anaerobic respiration produces less ATP.",
+						frequency: "high",
+						tags: ["比较", "连接词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 79,
+						word: "On the other hand",
+						type: "短语",
+						definition: "另一方面",
+						example: "On the other hand, the method has some limitations.",
+						frequency: "high",
+						tags: ["比较", "连接词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 80,
+						word: "Both",
+						phonetic: "/bəʊθ/",
+						type: "代词",
+						definition: "两者都",
+						example: "Both plants and animals respire.",
+						frequency: "high",
+						tags: ["比较", "连接词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 81,
+						word: "Neither",
+						phonetic: "/ˈnaɪðər/",
+						type: "代词",
+						definition: "两者都不",
+						example: "Neither hypothesis was supported by the data.",
+						frequency: "medium",
+						tags: ["比较", "连接词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 82,
+						word: "However",
+						phonetic: "/haʊˈevər/",
+						type: "连词",
+						definition: "然而",
+						example: "The results were unexpected. However, they can be explained.",
+						frequency: "high",
+						tags: ["比较", "连接词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 83,
+						word: "Although",
+						phonetic: "/ɔːlˈðəʊ/",
+						type: "连词",
+						definition: "虽然",
+						example: "Although the rate decreases, the reaction continues.",
+						frequency: "high",
+						tags: ["比较", "连接词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 84,
+						word: "Despite",
+						phonetic: "/dɪˈspaɪt/",
+						type: "介词",
+						definition: "尽管",
+						example: "Despite the low temperature, some activity occurs.",
+						frequency: "medium",
+						tags: ["比较", "连接词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 85,
+						word: "Compared to",
+						type: "短语",
+						definition: "与...相比",
+						example: "Compared to Method A, Method B is more accurate.",
+						frequency: "high",
+						tags: ["比较", "连接词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 86,
+						word: "Unlike",
+						phonetic: "/ʌnˈlaɪk/",
+						type: "介词",
+						definition: "与...不同",
+						example: "Unlike mammals, birds have air sacs.",
+						frequency: "medium",
+						tags: ["比较", "连接词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 87,
+						word: "As well as",
+						type: "短语",
+						definition: "以及，还有",
+						example: "The system includes lungs as well as trachea.",
+						frequency: "high",
+						tags: ["连接词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 88,
+						word: "Furthermore",
+						phonetic: "/ˌfɜːðəˈmɔːr/",
+						type: "副词",
+						definition: "此外",
+						example: "The method is accurate. Furthermore, it is quick.",
+						frequency: "medium",
+						tags: ["连接词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 89,
+						word: "Therefore",
+						phonetic: "/ˈðeəfɔːr/",
+						type: "副词",
+						definition: "因此",
+						example: "The temperature is optimal, therefore the rate is highest.",
+						frequency: "high",
+						tags: ["因果连接"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 90,
+						word: "Consequently",
+						phonetic: "/ˈkɒnsɪkwəntli/",
+						type: "副词",
+						definition: "因此，结果",
+						example: "The membrane was damaged, consequently substances leaked out.",
+						frequency: "medium",
+						tags: ["因果连接"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 91,
+						word: "Because",
+						phonetic: "/bɪˈkɒz/",
+						type: "连词",
+						definition: "因为",
+						example: "The rate increases because temperature affects kinetic energy.",
+						frequency: "high",
+						tags: ["因果连接"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 92,
+						word: "Due to",
+						phonetic: "/djuː tuː/",
+						type: "短语",
+						definition: "由于",
+						example: "The difference is due to experimental error.",
+						frequency: "high",
+						tags: ["因果连接"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 93,
+						word: "If",
+						phonetic: "/ɪf/",
+						type: "连词",
+						definition: "如果",
+						example: "If the temperature is too high, enzymes denature.",
+						frequency: "high",
+						tags: ["条件连接"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 94,
+						word: "Unless",
+						phonetic: "/ʌnˈles/",
+						type: "连词",
+						definition: "除非",
+						example: "The reaction will not occur unless enzymes are present.",
+						frequency: "medium",
+						tags: ["条件连接"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 95,
+						word: "In order to",
+						type: "短语",
+						definition: "为了",
+						example: "In order to increase validity, control all variables.",
+						frequency: "high",
+						tags: ["目的连接"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 96,
+						word: "With",
+						phonetic: "/wɪð/",
+						type: "介词",
+						definition: "随着，带有",
+						example: "With increasing light intensity, photosynthesis rate increases.",
+						frequency: "high",
+						tags: ["连接词"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 97,
+						word: "When",
+						phonetic: "/wen/",
+						type: "连词",
+						definition: "当...时",
+						example: "When oxygen is present, aerobic respiration occurs.",
+						frequency: "high",
+						tags: ["时间连接"],
+						learned: false,
+						needReview: false
+					}
+				],
+
+				"生物动词": [{
+						id: 98,
+						word: "Diffuse",
+						phonetic: "/dɪˈfjuːz/",
+						type: "动词",
+						definition: "扩散（分子从高浓度向低浓度移动）",
+						example: "Oxygen diffuses from alveoli into the blood capillaries.",
+						frequency: "high",
+						tags: ["物质运输", "细胞"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 99,
+						word: "Osmosis",
+						phonetic: "/ɒzˈməʊsɪs/",
+						type: "名词",
+						definition: "渗透（水分子通过半透膜的扩散）",
+						example: "Water moves into root hair cells by osmosis.",
+						frequency: "high",
+						tags: ["物质运输", "细胞"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 100,
+						word: "Active transport",
+						type: "名词短语",
+						definition: "主动运输（需要能量的物质跨膜运输）",
+						example: "Mineral ions are absorbed by active transport.",
+						frequency: "high",
+						tags: ["物质运输", "细胞"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 101,
+						word: "Photosynthesize",
+						phonetic: "/ˌfəʊtəʊˈsɪnθəsaɪz/",
+						type: "动词",
+						definition: "进行光合作用",
+						example: "Plants photosynthesize to produce glucose.",
+						frequency: "high",
+						tags: ["植物生理", "能量"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 102,
+						word: "Respire",
+						phonetic: "/rɪˈspaɪər/",
+						type: "动词",
+						definition: "呼吸",
+						example: "All living organisms respire to release energy.",
+						frequency: "high",
+						tags: ["细胞过程", "能量"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 103,
+						word: "Digest",
+						phonetic: "/daɪˈdʒest/",
+						type: "动词",
+						definition: "消化",
+						example: "Enzymes in the stomach digest proteins.",
+						frequency: "high",
+						tags: ["营养", "人体生理"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 104,
+						word: "Absorb",
+						phonetic: "/əbˈzɔːrb/",
+						type: "动词",
+						definition: "吸收",
+						example: "Villi absorb nutrients in the small intestine.",
+						frequency: "high",
+						tags: ["营养", "人体生理"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 105,
+						word: "Assimilate",
+						phonetic: "/əˈsɪməleɪt/",
+						type: "动词",
+						definition: "同化",
+						example: "Cells assimilate nutrients for growth.",
+						frequency: "medium",
+						tags: ["营养", "代谢"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 106,
+						word: "Metabolize",
+						phonetic: "/məˈtæbəlaɪz/",
+						type: "动词",
+						definition: "代谢",
+						example: "Liver cells metabolize toxins.",
+						frequency: "medium",
+						tags: ["代谢", "人体生理"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 107,
+						word: "Synthesize",
+						phonetic: "/ˈsɪnθəsaɪz/",
+						type: "动词",
+						definition: "合成",
+						example: "Ribosomes synthesize proteins.",
+						frequency: "high",
+						tags: ["细胞过程", "分子"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 108,
+						word: "Replicate",
+						phonetic: "/ˈreplɪkeɪt/",
+						type: "动词",
+						definition: "复制",
+						example: "DNA replicates before cell division.",
+						frequency: "high",
+						tags: ["遗传", "细胞"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 109,
+						word: "Transcribe",
+						phonetic: "/trænˈskraɪb/",
+						type: "动词",
+						definition: "转录",
+						example: "DNA is transcribed into mRNA.",
+						frequency: "medium",
+						tags: ["遗传", "分子"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 110,
+						word: "Translate",
+						phonetic: "/trænsˈleɪt/",
+						type: "动词",
+						definition: "翻译",
+						example: "mRNA is translated into proteins.",
+						frequency: "medium",
+						tags: ["遗传", "分子"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 111,
+						word: "Mitosis",
+						phonetic: "/maɪˈtəʊsɪs/",
+						type: "名词",
+						definition: "有丝分裂",
+						example: "Mitosis produces two identical daughter cells.",
+						frequency: "high",
+						tags: ["细胞分裂", "生长"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 112,
+						word: "Meiosis",
+						phonetic: "/maɪˈəʊsɪs/",
+						type: "名词",
+						definition: "减数分裂",
+						example: "Meiosis produces gametes with half the chromosomes.",
+						frequency: "high",
+						tags: ["细胞分裂", "生殖"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 113,
+						word: "Differentiate",
+						phonetic: "/ˌdɪfəˈrenʃieɪt/",
+						type: "动词",
+						definition: "分化",
+						example: "Stem cells differentiate into specialized cells.",
+						frequency: "medium",
+						tags: ["细胞", "发育"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 114,
+						word: "Specialize",
+						phonetic: "/ˈspeʃəlaɪz/",
+						type: "动词",
+						definition: "特化，专门化",
+						example: "Neurons specialize in transmitting impulses.",
+						frequency: "medium",
+						tags: ["细胞", "功能"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 115,
+						word: "Ingest",
+						phonetic: "/ɪnˈdʒest/",
+						type: "动词",
+						definition: "摄入",
+						example: "Organisms ingest food for nutrition.",
+						frequency: "medium",
+						tags: ["营养", "摄食"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 116,
+						word: "Egestion",
+						phonetic: "/iːˈdʒestʃən/",
+						type: "名词",
+						definition: "排遗",
+						example: "Undigested material is removed by egestion.",
+						frequency: "low",
+						tags: ["排泄", "消化"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 117,
+						word: "Excrete",
+						phonetic: "/ɪkˈskriːt/",
+						type: "动词",
+						definition: "排泄",
+						example: "Kidneys excrete urea from the blood.",
+						frequency: "high",
+						tags: ["排泄", "人体生理"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 118,
+						word: "Secrete",
+						phonetic: "/sɪˈkriːt/",
+						type: "动词",
+						definition: "分泌",
+						example: "Pancreas secretes digestive enzymes.",
+						frequency: "high",
+						tags: ["分泌", "人体生理"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 119,
+						word: "Circulate",
+						phonetic: "/ˈsɜːrkjəleɪt/",
+						type: "动词",
+						definition: "循环",
+						example: "Blood circulates around the body.",
+						frequency: "high",
+						tags: ["循环系统", "运输"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 120,
+						word: "Pump",
+						phonetic: "/pʌmp/",
+						type: "动词",
+						definition: "泵送",
+						example: "The heart pumps blood to the lungs.",
+						frequency: "high",
+						tags: ["循环系统", "心脏"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 121,
+						word: "Filter",
+						phonetic: "/ˈfɪltər/",
+						type: "动词",
+						definition: "过滤",
+						example: "Kidneys filter waste from the blood.",
+						frequency: "high",
+						tags: ["排泄", "肾脏"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 122,
+						word: "Reabsorb",
+						phonetic: "/ˌriːəbˈzɔːrb/",
+						type: "动词",
+						definition: "重吸收",
+						example: "Useful substances are reabsorbed in the kidneys.",
+						frequency: "medium",
+						tags: ["排泄", "肾脏"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 123,
+						word: "Ventilate",
+						phonetic: "/ˈventɪleɪt/",
+						type: "动词",
+						definition: "通气",
+						example: "Lungs ventilate to exchange gases.",
+						frequency: "high",
+						tags: ["呼吸系统", "气体交换"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 124,
+						word: "Inhale",
+						phonetic: "/ɪnˈheɪl/",
+						type: "动词",
+						definition: "吸入",
+						example: "We inhale oxygen from the air.",
+						frequency: "high",
+						tags: ["呼吸系统", "吸气"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 125,
+						word: "Exhale",
+						phonetic: "/eksˈheɪl/",
+						type: "动词",
+						definition: "呼出",
+						example: "We exhale carbon dioxide.",
+						frequency: "high",
+						tags: ["呼吸系统", "呼气"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 126,
+						word: "Gas exchange",
+						type: "名词短语",
+						definition: "气体交换",
+						example: "Gas exchange occurs in the alveoli.",
+						frequency: "high",
+						tags: ["呼吸系统", "肺泡"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 127,
+						word: "Stimulate",
+						phonetic: "/ˈstɪmjuleɪt/",
+						type: "动词",
+						definition: "刺激",
+						example: "Hormones stimulate target cells.",
+						frequency: "high",
+						tags: ["神经", "激素"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 128,
+						word: "Respond",
+						phonetic: "/rɪˈspɒnd/",
+						type: "动词",
+						definition: "响应，反应",
+						example: "Organisms respond to environmental changes.",
+						frequency: "high",
+						tags: ["神经", "行为"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 129,
+						word: "Transmit",
+						phonetic: "/trænsˈmɪt/",
+						type: "动词",
+						definition: "传递，传导",
+						example: "Neurons transmit nerve impulses.",
+						frequency: "high",
+						tags: ["神经", "传导"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 130,
+						word: "Impulse",
+						phonetic: "/ˈɪmpʌls/",
+						type: "名词",
+						definition: "冲动，脉冲",
+						example: "Nerve impulses travel along neurons.",
+						frequency: "high",
+						tags: ["神经", "电信号"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 131,
+						word: "Contract",
+						phonetic: "/kənˈtrækt/",
+						type: "动词",
+						definition: "收缩",
+						example: "Muscle fibers contract to produce movement.",
+						frequency: "high",
+						tags: ["肌肉", "运动"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 132,
+						word: "Relax",
+						phonetic: "/rɪˈlæks/",
+						type: "动词",
+						definition: "松弛",
+						example: "Muscles relax after contraction.",
+						frequency: "high",
+						tags: ["肌肉", "运动"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 133,
+						word: "Coordinate",
+						phonetic: "/kəʊˈɔːdɪneɪt/",
+						type: "动词",
+						definition: "协调",
+						example: "The nervous system coordinates body functions.",
+						frequency: "medium",
+						tags: ["神经", "调节"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 134,
+						word: "Regulate",
+						phonetic: "/ˈreɡjuleɪt/",
+						type: "动词",
+						definition: "调节",
+						example: "Homeostasis regulates internal conditions.",
+						frequency: "high",
+						tags: ["内稳态", "调节"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 135,
+						word: "Homeostasis",
+						phonetic: "/ˌhəʊmiəʊˈsteɪsɪs/",
+						type: "名词",
+						definition: "内稳态",
+						example: "Homeostasis maintains constant internal conditions.",
+						frequency: "high",
+						tags: ["内稳态", "调节"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 136,
+						word: "Inherit",
+						phonetic: "/ɪnˈherɪt/",
+						type: "动词",
+						definition: "遗传",
+						example: "Offspring inherit genes from parents.",
+						frequency: "high",
+						tags: ["遗传", "基因"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 137,
+						word: "Gene",
+						phonetic: "/dʒiːn/",
+						type: "名词",
+						definition: "基因",
+						example: "Genes code for specific proteins.",
+						frequency: "high",
+						tags: ["遗传", "DNA"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 138,
+						word: "Allele",
+						phonetic: "/əˈliːl/",
+						type: "名词",
+						definition: "等位基因",
+						example: "Different alleles produce different traits.",
+						frequency: "high",
+						tags: ["遗传", "变异"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 139,
+						word: "Dominant",
+						phonetic: "/ˈdɒmɪnənt/",
+						type: "形容词",
+						definition: "显性的",
+						example: "Brown eye color is a dominant trait.",
+						frequency: "high",
+						tags: ["遗传", "特征"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 140,
+						word: "Recessive",
+						phonetic: "/rɪˈsesɪv/",
+						type: "形容词",
+						definition: "隐性的",
+						example: "Blue eye color is a recessive trait.",
+						frequency: "high",
+						tags: ["遗传", "特征"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 141,
+						word: "Mutate",
+						phonetic: "/mjuːˈteɪt/",
+						type: "动词",
+						definition: "突变",
+						example: "DNA can mutate due to environmental factors.",
+						frequency: "medium",
+						tags: ["遗传", "变异"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 142,
+						word: "Evolve",
+						phonetic: "/ɪˈvɒlv/",
+						type: "动词",
+						definition: "进化",
+						example: "Species evolve over generations.",
+						frequency: "high",
+						tags: ["进化", "自然选择"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 143,
+						word: "Natural selection",
+						type: "名词短语",
+						definition: "自然选择",
+						example: "Natural selection favors advantageous traits.",
+						frequency: "high",
+						tags: ["进化", "选择"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 144,
+						word: "Adapt",
+						phonetic: "/əˈdæpt/",
+						type: "动词",
+						definition: "适应",
+						example: "Organisms adapt to their environment.",
+						frequency: "high",
+						tags: ["进化", "适应"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 145,
+						word: "Variation",
+						phonetic: "/ˌveəriˈeɪʃn/",
+						type: "名词",
+						definition: "变异",
+						example: "Genetic variation provides raw material for evolution.",
+						frequency: "high",
+						tags: ["遗传", "进化"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 146,
+						word: "Decompose",
+						phonetic: "/ˌdiːkəmˈpəʊz/",
+						type: "动词",
+						definition: "分解",
+						example: "Bacteria decompose dead organic matter.",
+						frequency: "high",
+						tags: ["生态", "营养循环"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 147,
+						word: "Recycle",
+						phonetic: "/ˌriːˈsaɪkl/",
+						type: "动词",
+						definition: "循环",
+						example: "Nutrients are recycled in ecosystems.",
+						frequency: "high",
+						tags: ["生态", "物质循环"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 148,
+						word: "Pollinate",
+						phonetic: "/ˈpɒləneɪt/",
+						type: "动词",
+						definition: "授粉",
+						example: "Bees pollinate flowers.",
+						frequency: "medium",
+						tags: ["植物", "生殖"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 149,
+						word: "Germinate",
+						phonetic: "/ˈdʒɜːmɪneɪt/",
+						type: "动词",
+						definition: "发芽",
+						example: "Seeds germinate under suitable conditions.",
+						frequency: "medium",
+						tags: ["植物", "生长"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 150,
+						word: "Grow",
+						phonetic: "/ɡrəʊ/",
+						type: "动词",
+						definition: "生长",
+						example: "Plants grow towards light.",
+						frequency: "high",
+						tags: ["生长", "发育"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 151,
+						word: "Reproduce",
+						phonetic: "/ˌriːprəˈdjuːs/",
+						type: "动词",
+						definition: "繁殖",
+						example: "Organisms reproduce to continue the species.",
+						frequency: "high",
+						tags: ["生殖", "生命过程"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 152,
+						word: "Fertilize",
+						phonetic: "/ˈfɜːtəlaɪz/",
+						type: "动词",
+						definition: "受精",
+						example: "Sperm fertilizes the egg.",
+						frequency: "high",
+						tags: ["生殖", "受精"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 153,
+						word: "Disperse",
+						phonetic: "/dɪˈspɜːs/",
+						type: "动词",
+						definition: "传播，散布",
+						example: "Seeds are dispersed by wind or animals.",
+						frequency: "medium",
+						tags: ["植物", "传播"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 154,
+						word: "Support",
+						phonetic: "/səˈpɔːt/",
+						type: "动词",
+						definition: "支持",
+						example: "Xylem supports the plant and transports water.",
+						frequency: "medium",
+						tags: ["植物结构", "功能"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 155,
+						word: "Protect",
+						phonetic: "/prəˈtekt/",
+						type: "动词",
+						definition: "保护",
+						example: "The epidermis protects the leaf.",
+						frequency: "medium",
+						tags: ["植物结构", "功能"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 156,
+						word: "Transport",
+						phonetic: "/ˈtrænspɔːt/",
+						type: "动词",
+						definition: "运输",
+						example: "Phloem transports sugars around the plant.",
+						frequency: "high",
+						tags: ["植物生理", "运输"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 157,
+						word: "Store",
+						phonetic: "/stɔːr/",
+						type: "动词",
+						definition: "储存",
+						example: "Plants store starch in their roots.",
+						frequency: "high",
+						tags: ["营养", "储存"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 158,
+						word: "Release",
+						phonetic: "/rɪˈliːs/",
+						type: "动词",
+						definition: "释放",
+						example: "Mitochondria release energy during respiration.",
+						frequency: "high",
+						tags: ["能量", "代谢"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 159,
+						word: "Produce",
+						phonetic: "/prəˈdjuːs/",
+						type: "动词",
+						definition: "产生",
+						example: "Chloroplasts produce glucose during photosynthesis.",
+						frequency: "high",
+						tags: ["合成", "生产"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 160,
+						word: "Break down",
+						type: "短语动词",
+						definition: "分解",
+						example: "Enzymes break down large molecules.",
+						frequency: "high",
+						tags: ["消化", "分解"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 161,
+						word: "Build up",
+						type: "短语动词",
+						definition: "构建",
+						example: "Cells build up proteins from amino acids.",
+						frequency: "medium",
+						tags: ["合成", "构建"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 162,
+						word: "Convert",
+						phonetic: "/kənˈvɜːt/",
+						type: "动词",
+						definition: "转化",
+						example: "Chloroplasts convert light energy to chemical energy.",
+						frequency: "high",
+						tags: ["能量转换", "光合作用"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 163,
+						word: "Transfer",
+						phonetic: "/trænsˈfɜːr/",
+						type: "动词",
+						definition: "转移",
+						example: "Energy is transferred through food chains.",
+						frequency: "high",
+						tags: ["能量", "生态"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 164,
+						word: "Infect",
+						phonetic: "/ɪnˈfekt/",
+						type: "动词",
+						definition: "感染",
+						example: "Viruses infect host cells.",
+						frequency: "medium",
+						tags: ["疾病", "微生物"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 165,
+						word: "Immune",
+						phonetic: "/ɪˈmjuːn/",
+						type: "形容词",
+						definition: "免疫的",
+						example: "Vaccination makes individuals immune to diseases.",
+						frequency: "medium",
+						tags: ["免疫", "疾病"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 166,
+						word: "Vaccine",
+						phonetic: "/ˈvæksiːn/",
+						type: "名词",
+						definition: "疫苗",
+						example: "Vaccines stimulate immunity without causing disease.",
+						frequency: "medium",
+						tags: ["免疫", "预防"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 167,
+						word: "Antibiotic",
+						phonetic: "/ˌæntibaɪˈɒtɪk/",
+						type: "名词",
+						definition: "抗生素",
+						example: "Antibiotics kill bacteria but not viruses.",
+						frequency: "medium",
+						tags: ["疾病", "治疗"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 168,
+						word: "Pathogen",
+						phonetic: "/ˈpæθədʒən/",
+						type: "名词",
+						definition: "病原体",
+						example: "Pathogens cause infectious diseases.",
+						frequency: "high",
+						tags: ["疾病", "微生物"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 169,
+						word: "Disease",
+						phonetic: "/dɪˈziːz/",
+						type: "名词",
+						definition: "疾病",
+						example: "Malaria is a mosquito-borne disease.",
+						frequency: "high",
+						tags: ["健康", "疾病"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 170,
+						word: "Symptom",
+						phonetic: "/ˈsɪmptəm/",
+						type: "名词",
+						definition: "症状",
+						example: "Fever is a symptom of infection.",
+						frequency: "medium",
+						tags: ["疾病", "诊断"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 171,
+						word: "Treatment",
+						phonetic: "/ˈtriːtmənt/",
+						type: "名词",
+						definition: "治疗",
+						example: "Antibiotics are a treatment for bacterial infections.",
+						frequency: "medium",
+						tags: ["疾病", "医疗"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 172,
+						word: "Prevention",
+						phonetic: "/prɪˈvenʃn/",
+						type: "名词",
+						definition: "预防",
+						example: "Vaccination is a method of disease prevention.",
+						frequency: "medium",
+						tags: ["疾病", "预防"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 173,
+						word: "Transpire",
+						phonetic: "/trænˈspaɪər/",
+						type: "动词",
+						definition: "蒸腾",
+						example: "Plants transpire water vapor through stomata.",
+						frequency: "high",
+						tags: ["植物生理", "水运输"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 174,
+						word: "Flowering",
+						phonetic: "/ˈflaʊərɪŋ/",
+						type: "名词",
+						definition: "开花",
+						example: "Flowering is controlled by photoperiod.",
+						frequency: "medium",
+						tags: ["植物", "生殖"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 175,
+						word: "Seed dispersal",
+						type: "名词短语",
+						definition: "种子传播",
+						example: "Seed dispersal reduces competition.",
+						frequency: "medium",
+						tags: ["植物", "传播"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 176,
+						word: "Root absorption",
+						type: "名词短语",
+						definition: "根部吸收",
+						example: "Root absorption of water occurs by osmosis.",
+						frequency: "medium",
+						tags: ["植物", "吸收"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 177,
+						word: "Stomata",
+						phonetic: "/ˈstəʊmətə/",
+						type: "名词",
+						definition: "气孔",
+						example: "Stomata allow gas exchange in leaves.",
+						frequency: "high",
+						tags: ["植物结构", "气体交换"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 178,
+						word: "Chlorophyll",
+						phonetic: "/ˈklɔːrəfɪl/",
+						type: "名词",
+						definition: "叶绿素",
+						example: "Chlorophyll absorbs light for photosynthesis.",
+						frequency: "high",
+						tags: ["光合作用", "色素"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 179,
+						word: "Xylem",
+						phonetic: "/ˈzaɪləm/",
+						type: "名词",
+						definition: "木质部",
+						example: "Xylem transports water and minerals upwards.",
+						frequency: "high",
+						tags: ["植物组织", "运输"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 180,
+						word: "Phloem",
+						phonetic: "/ˈfləʊem/",
+						type: "名词",
+						definition: "韧皮部",
+						example: "Phloem transports sugars in both directions.",
+						frequency: "high",
+						tags: ["植物组织", "运输"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 181,
+						word: "Enzyme",
+						phonetic: "/ˈenzaɪm/",
+						type: "名词",
+						definition: "酶",
+						example: "Enzymes are biological catalysts.",
+						frequency: "high",
+						tags: ["蛋白质", "催化剂"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 182,
+						word: "Substrate",
+						phonetic: "/ˈsʌbstreɪt/",
+						type: "名词",
+						definition: "底物",
+						example: "The substrate binds to the enzyme's active site.",
+						frequency: "high",
+						tags: ["酶", "反应物"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 183,
+						word: "Catalyst",
+						phonetic: "/ˈkætəlɪst/",
+						type: "名词",
+						definition: "催化剂",
+						example: "Enzymes act as catalysts in biological reactions.",
+						frequency: "medium",
+						tags: ["酶", "加速反应"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 184,
+						word: "Optimum",
+						phonetic: "/ˈɒptɪməm/",
+						type: "形容词",
+						definition: "最适的",
+						example: "Enzymes have an optimum temperature and pH.",
+						frequency: "high",
+						tags: ["酶", "条件"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 185,
+						word: "Denature",
+						phonetic: "/diːˈneɪtʃər/",
+						type: "动词",
+						definition: "变性",
+						example: "High temperatures denature enzymes.",
+						frequency: "high",
+						tags: ["酶", "结构变化"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 186,
+						word: "Concentration",
+						phonetic: "/ˌkɒnsnˈtreɪʃn/",
+						type: "名词",
+						definition: "浓度",
+						example: "Enzyme activity increases with substrate concentration.",
+						frequency: "high",
+						tags: ["测量", "化学"],
+						learned: false,
+						needReview: false
+					},
+					{
+						id: 187,
+						word: "Rate",
+						phonetic: "/reɪt/",
+						type: "名词",
+						definition: "速率",
+						example: "Measure the rate of reaction.",
+						frequency: "high",
+						tags: ["测量", "过程"],
+						learned: false,
+						needReview: false
+					}
+				]
+			};
+
+			// 应用状态管理
+			const appState = {
+				currentView: 'home',
+				currentFilter: 'all',
+				searchTerm: '',
+				darkMode: false
+			};
+            // ==================== 词汇筛选函数 ====================
+            function filterVocabulary(words, category) {
+                console.log(`筛选分类 "${category}" 的词汇，共 ${words.length} 个`);
+                console.log('当前筛选器:', appState.currentFilter, '搜索词:', appState.searchTerm);
+                
+                return words.filter(word => {
+                    const filter = appState.currentFilter;
+                    
+                    // 1. 分类筛选（command, experiment, process, compare, biology）
+                    if (['command', 'experiment', 'process', 'compare', 'biology'].includes(filter)) {
+                        const categoryFilterMap = {
+                            'command': '指令词',
+                            'experiment': '实验词汇', 
+                            'process': '过程描述',
+                            'compare': '比较连接',
+                            'biology': '生物动词'
+                        };
+                        
+                        const targetCategory = categoryFilterMap[filter];
+                        if (category !== targetCategory) {
+                            console.log(`词汇 "${word.word}" 被排除：分类不匹配 (${category} ≠ ${targetCategory})`);
+                            return false;
+                        }
+                    }
+                    
+                    // 2. 频率筛选（高频必考）
+                    if (filter === 'high') {
+                        if (word.frequency !== 'high') {
+                            console.log(`词汇 "${word.word}" 被排除：不是高频词`);
+                            return false;
+                        }
+                    }
+                    
+                    // 3. 学习状态筛选
+                    if (filter === 'learned' && !word.learned) {
+                        console.log(`词汇 "${word.word}" 被排除：未标记为已掌握`);
+                        return false;
+                    }
+                    if (filter === 'review' && !word.needReview) {
+                        console.log(`词汇 "${word.word}" 被排除：未标记为需复习`);
+                        return false;
+                    }
+                    
+                    // 4. 搜索筛选
+                    if (appState.searchTerm) {
+                        const searchLower = appState.searchTerm.toLowerCase().trim();
+                        if (searchLower) {
+                            let found = false;
+                            
+                            // 检查单词
+                            if (word.word && word.word.toLowerCase().includes(searchLower)) {
+                                found = true;
+                                console.log(`词汇 "${word.word}" 匹配搜索：单词包含 "${searchLower}"`);
+                            }
+                            // 检查定义
+                            else if (word.definition && word.definition.toLowerCase().includes(searchLower)) {
+                                found = true;
+                                console.log(`词汇 "${word.word}" 匹配搜索：定义包含 "${searchLower}"`);
+                            }
+                            // 检查音标
+                            else if (word.phonetic && word.phonetic.toLowerCase().includes(searchLower)) {
+                                found = true;
+                                console.log(`词汇 "${word.word}" 匹配搜索：音标包含 "${searchLower}"`);
+                            }
+                            // 检查例句
+                            else if (word.example && word.example.toLowerCase().includes(searchLower)) {
+                                found = true;
+                                console.log(`词汇 "${word.word}" 匹配搜索：例句包含 "${searchLower}"`);
+                            }
+                            
+                            if (!found) {
+                                console.log(`词汇 "${word.word}" 被排除：不包含搜索词 "${searchLower}"`);
+                                return false;
+                            }
+                        }
+                    }
+                    
+                    console.log(`词汇 "${word.word}" 通过所有筛选条件`);
+                    return true;
+                });
+            }
+			// ==================== 初始化应用 ====================
+			document.addEventListener('DOMContentLoaded', function() {
+			    console.log('🚀 IGCSE生物词汇应用启动');
+			    
+			    // 显示设备信息
+			    const deviceInfo = getDeviceInfo();
+			    console.log(`运行在: ${deviceInfo.os} ${deviceInfo.browser}`);
+			    
+			    // 初始化语音系统
+			    setTimeout(() => {
+			        if (initSpeechSystem()) {
+			            const voice = getBestBritishVoice();
+			            if (voice) {
+			                const accent = voice.lang === 'en-GB' ? '英式' : 
+			                              voice.lang === 'en-US' ? '美式' : '英语';
+			                console.log(`🎵 发音系统: ${accent}发音 (${voice.name})`);
+			                
+			                // 在控制台显示可用语音（调试用）
+			                const voices = window.speechSynthesis.getVoices();
+			                const britishVoices = voices.filter(v => 
+			                    v.lang === 'en-GB' || v.name.includes('British')
+			                );
+			                
+			                if (britishVoices.length > 0) {
+			                    console.log('🎩 可用的英式发音:');
+			                    britishVoices.forEach(v => console.log(`  - ${v.name}`));
+			                }
+			            }
+			        } else {
+			            console.warn('⚠️ 语音功能不可用，将使用纯文本学习');
+			        }
+			    }, 1000);
+			    
+			    // 其他初始化代码...
+			    initFilterTags();
+			    loadProgress();
+			    updateStats();
+			    checkDarkMode();
+			    showHome();
+			    
+			    // 监听页面可见性变化（当用户切换回标签页时）
+			    document.addEventListener('visibilitychange', function() {
+			        if (!document.hidden && appState.currentView === 'home') {
+			            console.log('👀 页面变为可见，更新首页统计');
+			            updateStats();
+			        }
+			    });
+			    
+			    // 监听页面聚焦事件
+			    window.addEventListener('focus', function() {
+			        if (appState.currentView === 'home') {
+			            console.log('🎯 页面获得焦点，更新首页统计');
+			            updateStats();
+			        }
+			    });
+			});
+
+			// ==================== 视图切换函数 ====================
+			function showHome() {
+			    console.log('🏠 显示首页 - 强制更新统计');
+			    
+			    appState.currentView = 'home';
+			    updateNav('home');
+			    
+			    // 隐藏搜索栏和筛选标签
+			    document.getElementById('searchSection').style.display = 'none';
+			    document.getElementById('filterTags').style.display = 'none';
+			    
+			    // 清空状态
+			    appState.searchTerm = '';
+			    appState.currentFilter = 'all';
+			    
+			    // 关键：每次显示首页时强制更新统计
+			    updateStats();
+			    
+			    const content = `
+			        <div style="padding: 20px 15px; text-align: center;">
+			            <div style="font-size: 3rem; margin-bottom: 20px;">📚</div>
+			            <h2 style="color: var(--primary); margin-bottom: 10px;">IGCSE生物高频词汇</h2>
+			            <p style="color: #666; margin-bottom: 30px;">187个必考词汇 • 移动学习版</p>
+			            
+			            <div class="stats-grid">
+			                <div class="stat-card">
+			                    <div class="stat-number">187</div>
+			                    <div class="stat-label">总词汇数</div>
+			                </div>
+			                <div class="stat-card">
+			                    <div class="stat-number" id="learnedCount" data-stat="learned">0</div>
+			                    <div class="stat-label">已掌握</div>
+			                </div>
+			                <div class="stat-card">
+			                    <div class="stat-number" id="reviewCount" data-stat="review">0</div>
+			                    <div class="stat-label">需复习</div>
+			                </div>
+			                <div class="stat-card">
+			                    <div class="stat-number">5</div>
+			                    <div class="stat-label">分类</div>
+			                </div>
+			            </div>
+			            
+			            <div style="margin-top: 40px;">
+			                <button onclick="showCategories()" style="width: 100%; padding: 15px; background: var(--accent); color: white; border: none; border-radius: 12px; font-size: 1.1rem; margin-bottom: 10px; cursor: pointer;">
+			                    📚 开始学习
+			                </button>
+			                <button onclick="showAllVocabulary()" style="width: 100%; padding: 15px; background: white; color: var(--primary); border: 2px solid var(--accent); border-radius: 12px; font-size: 1.1rem; margin-bottom: 10px; cursor: pointer;">
+			                    🔤 浏览全部词汇
+			                </button>
+			                <button onclick="showReviewVocabulary()" 
+			                        style="width: 100%; padding: 15px; background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%); color: white; border: none; border-radius: 12px; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+			                    🔄 开始复习
+			                    <span id="reviewCountBadge" 
+			                          data-review-badge="true"
+			                          style="background: rgba(255,255,255,0.3); padding: 2px 8px; border-radius: 10px; font-size: 0.9rem;">
+			                        0
+			                    </span>
+			                </button>
+			            </div>
+			            
+			            <div style="margin-top: 40px; padding: 20px; background: var(--light); border-radius: 12px; text-align: left;">
+			                <h4 style="color: var(--primary); margin-bottom: 10px;">📱 使用说明</h4>
+			                <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">
+			                    1. 点击底部导航切换功能<br>
+			                    2. 使用搜索框快速查找词汇<br>
+			                    3. 点击词汇卡片标记学习状态<br>
+			                    4. 支持离线学习和进度保存
+			                </p>
+			            </div>
+			        </div>
+			    `;
+			
+			    document.getElementById('contentArea').innerHTML = content;
+			    
+			    // 关键：渲染完HTML后，再次确保统计数字更新
+			    setTimeout(() => {
+			        updateStats();
+			    }, 100);
+			}
+
+			function showCategories() {
+				console.log('📚 显示分类页面 - 重置筛选状态');
+				
+				appState.currentView = 'categories';
+				updateNav('categories');
+				
+				// 重置筛选状态（重要！）
+				appState.currentFilter = 'all';
+				appState.searchTerm = '';
+				
+				// 清空搜索框
+				const searchInput = document.getElementById('searchInput');
+				if (searchInput) {
+				    searchInput.value = '';
+				 }
+				    
+				// 更新筛选标签
+				updateFilterTags('all');
+				
+				const content = `
+                <div style="padding: 15px;">
+                    <h3 style="color: var(--primary); margin-bottom: 20px; padding-left: 10px;">📚 选择分类开始学习</h3>
+                    <div class="category-cards">
+                        <div class="category-card" onclick="showCategoryVocabulary('指令词')">
+                            <span class="category-icon">📝</span>
+                            <div class="category-title">指令词</div>
+                            <div class="category-count">15个词汇</div>
+                        </div>
+                        <div class="category-card" onclick="showCategoryVocabulary('实验词汇')">
+                            <span class="category-icon">🔬</span>
+                            <div class="category-title">实验词汇</div>
+                            <div class="category-count">32个词汇</div>
+                        </div>
+                        <div class="category-card" onclick="showCategoryVocabulary('过程描述')">
+                            <span class="category-icon">📈</span>
+                            <div class="category-title">过程描述</div>
+                            <div class="category-count">28个词汇</div>
+                        </div>
+                        <div class="category-card" onclick="showCategoryVocabulary('比较连接')">
+                            <span class="category-icon">🔄</span>
+                            <div class="category-title">比较连接</div>
+                            <div class="category-count">22个词汇</div>
+                        </div>
+                        <div class="category-card" onclick="showCategoryVocabulary('生物动词')">
+                            <span class="category-icon">🧬</span>
+                            <div class="category-title">生物动词</div>
+                            <div class="category-count">90个词汇</div>
+                        </div>
+                        <div class="category-card" onclick="showAllVocabulary()">
+                            <span class="category-icon">🔤</span>
+                            <div class="category-title">全部词汇</div>
+                            <div class="category-count">187个词汇</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+				document.getElementById('contentArea').innerHTML = content;
+				document.getElementById('searchSection').style.display = 'block';
+				document.getElementById('filterTags').style.display = 'flex';
+			}
+
+			function showVocabulary() {
+				appState.currentView = 'vocabulary';
+				updateNav('vocabulary');
+				renderVocabulary();
+			}
+
+			function showTools() {
+				appState.currentView = 'tools';
+				updateNav('tools');
+
+				const content = `
+                <div style="padding: 15px;">
+                    <h3 style="color: var(--primary); margin-bottom: 20px; padding-left: 10px;">🛠️ 学习工具</h3>
+                    <div class="tools-grid">
+                        <div class="tool-card" onclick="downloadWord()">
+                            <span class="tool-icon">📥</span>
+                            <div style="font-weight: bold; margin-bottom: 5px;">下载Word版</div>
+                            <div style="font-size: 0.9rem; color: #666;">导出完整词汇表</div>
+                        </div>
+                        <div class="tool-card" onclick="printVocabulary()">
+                            <span class="tool-icon">🖨️</span>
+                            <div style="font-weight: bold; margin-bottom: 5px;">打印词汇表</div>
+                            <div style="font-size: 0.9rem; color: #666;">生成打印版</div>
+                        </div>
+                        <div class="tool-card" onclick="exportForAnki()">
+                            <span class="tool-icon">📱</span>
+                            <div style="font-weight: bold; margin-bottom: 5px;">Anki导入</div>
+                            <div style="font-size: 0.9rem; color: #666;">生成记忆卡片</div>
+                        </div>
+                        <div class="tool-card" onclick="showStudyPlan()">
+                            <span class="tool-icon">📅</span>
+                            <div style="font-weight: bold; margin-bottom: 5px;">学习计划</div>
+                            <div style="font-size: 0.9rem; color: #666;">21天计划表</div>
+                        </div>
+                        <div class="tool-card" onclick="resetProgress()">
+                            <span class="tool-icon">🔄</span>
+                            <div style="font-weight: bold; margin-bottom: 5px;">重置进度</div>
+                            <div style="font-size: 0.9rem; color: #666;">重新开始学习</div>
+                        </div>
+                        <div class="tool-card" onclick="exportProgress()">
+                            <span class="tool-icon">📊</span>
+                            <div style="font-weight: bold; margin-bottom: 5px;">导出进度</div>
+                            <div style="font-size: 0.9rem; color: #666;">备份学习数据</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; padding: 20px; background: var(--light); border-radius: 12px;">
+                        <h4 style="color: var(--primary); margin-bottom: 10px;">💡 学习建议</h4>
+                        <ul style="font-size: 0.9rem; color: #666; line-height: 1.6; padding-left: 20px;">
+                            <li>每天学习10-15个词汇</li>
+                            <li>结合真题例句理解用法</li>
+                            <li>标记已掌握词汇定期复习</li>
+                            <li>使用Anki进行间隔重复记忆</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+
+				document.getElementById('contentArea').innerHTML = content;
+			}
+
+			function showStats() {
+				appState.currentView = 'stats';
+				updateNav('stats');
+				updateStats();
+			}
+
+			// 显示分类词汇
+			function showCategoryVocabulary(category) {
+			    console.log('📖 显示分类词汇:', category, '筛选器ID:', getFilterIdForCategory(category));
+			    
+			    appState.currentView = 'vocabulary';
+			    appState.currentFilter = getFilterIdForCategory(category);  // 设置为对应分类的筛选器ID
+			    appState.searchTerm = '';
+			    
+			    // 清空搜索框
+			    document.getElementById('searchInput').value = '';
+			    
+			    // 更新筛选标签
+			    updateFilterTags(appState.currentFilter);
+			    
+			    // 确保搜索栏和筛选标签显示
+			    document.getElementById('searchSection').style.display = 'block';
+			    document.getElementById('filterTags').style.display = 'flex';
+			    
+			    // 更新导航
+			    updateNav('vocabulary');
+			    
+			    // 渲染词汇
+			    renderVocabulary();
+			}
+
+			// 显示全部词汇
+			function showAllVocabulary() {
+			    console.log('🔤 显示全部词汇 - 重置筛选状态');
+			    
+			    // 重置所有筛选状态
+			    appState.currentView = 'vocabulary';
+			    appState.currentFilter = 'all';  // 关键：设置为 'all'
+			    appState.searchTerm = '';        // 清空搜索词
+			    
+			    // 清空搜索框
+			    const searchInput = document.getElementById('searchInput');
+			    if (searchInput) {
+			        searchInput.value = '';
+			    }
+			    
+			    // 更新筛选标签（选中"全部"）
+			    updateFilterTags('all');
+			    
+			    // 确保搜索栏和筛选标签显示
+			    document.getElementById('searchSection').style.display = 'block';
+			    document.getElementById('filterTags').style.display = 'flex';
+			    
+			    // 更新导航
+			    updateNav('vocabulary');
+			    
+			    // 渲染词汇
+			    renderVocabulary();
+			}
+            // ==================== 状态观察器 ====================
+            // 创建一个简单的状态观察器，当学习状态变化时自动更新首页
+            
+            // 存储所有需要更新统计的回调函数
+            const statUpdateCallbacks = [];
+            
+            // 注册更新函数
+            function registerStatUpdate(callback) {
+                statUpdateCallbacks.push(callback);
+            }
+            
+            // 通知所有注册的函数更新统计
+            function notifyStatUpdate() {
+                console.log('📢 通知统计更新');
+                statUpdateCallbacks.forEach(callback => {
+                    try {
+                        callback();
+                    } catch (e) {
+                        console.error('统计更新回调出错:', e);
+                    }
+                });
+            }
+            // ==================== 跨平台英式发音功能 ====================
+            // 检查并初始化语音功能
+            function initSpeechSystem() {
+                if (!('speechSynthesis' in window)) {
+                    console.warn('❌ 当前设备不支持语音合成');
+                    return false;
+                }
+                
+                // 等待语音加载完成（重要！）
+                let voices = window.speechSynthesis.getVoices();
+                if (voices.length === 0) {
+                    window.speechSynthesis.addEventListener('voiceschanged', () => {
+                        console.log('✅ 语音列表加载完成');
+                    });
+                }
+                
+                console.log('✅ 语音系统初始化完成');
+                return true;
+            }
+            
+            // 获取最佳英式发音语音
+            function getBestBritishVoice() {
+                const voices = window.speechSynthesis.getVoices();
+                if (voices.length === 0) {
+                    console.warn('没有可用的语音');
+                    return null;
+                }
+                
+                console.log('可用语音列表:');
+                voices.forEach((voice, i) => {
+                    console.log(`${i}: ${voice.name} (${voice.lang}) - ${voice.default ? '默认' : ''}`);
+                });
+                
+                // 按优先级选择英式发音（从高到低）
+                const voicePriority = [
+                    // 1. 英式英语（英国）
+                    voices.find(v => v.lang === 'en-GB' && v.name.includes('British')),
+                    voices.find(v => v.lang === 'en-GB'),
+                    
+                    // 2. 澳大利亚/新西兰英语（接近英式）
+                    voices.find(v => v.lang === 'en-AU'),
+                    voices.find(v => v.lang === 'en-NZ'),
+                    
+                    // 3. 国际英语（可能偏英式）
+                    voices.find(v => v.lang === 'en' && v.name.includes('British')),
+                    voices.find(v => v.lang === 'en' && v.name.includes('UK')),
+                    
+                    // 4. 美式英语（备选）
+                    voices.find(v => v.lang === 'en-US'),
+                    
+                    // 5. 任何英语语音
+                    voices.find(v => v.lang.startsWith('en')),
+                    
+                    // 6. 系统默认语音
+                    voices.find(v => v.default)
+                ].filter(Boolean); // 过滤掉undefined
+                
+                const selectedVoice = voicePriority[0];
+                
+                if (selectedVoice) {
+                    console.log(`✅ 选择的语音: ${selectedVoice.name} (${selectedVoice.lang})`);
+                    if (selectedVoice.lang === 'en-GB' || selectedVoice.name.includes('British')) {
+                        console.log('🎩 使用英式发音');
+                    } else if (selectedVoice.lang === 'en-US') {
+                        console.log('🇺🇸 使用美式发音（英式不可用）');
+                    }
+                }
+                
+                return selectedVoice || null;
+            }
+            
+            // 主发音函数（优化版）
+            function speakWord(word) {
+                // 安全处理单词（防止特殊字符问题）
+                const safeWord = word.replace(/['"`]/g, '');
+                
+                if (!initSpeechSystem()) {
+                    showNotification('设备不支持语音朗读', 'warning');
+                    return;
+                }
+                
+                // 停止当前发音
+                stopSpeaking();
+                
+                // 创建语音实例
+                const utterance = new SpeechSynthesisUtterance(safeWord);
+                
+                // 获取最佳英式语音
+                const voice = getBestBritishVoice();
+                if (voice) {
+                    utterance.voice = voice;
+                    utterance.lang = 'en-GB'; // 设置为英式英语
+                } else {
+                    utterance.lang = 'en-US'; // 备选美式英语
+                }
+                
+                // 优化发音参数（适合学习）
+                utterance.rate = 0.75;    // 稍慢，便于学习
+                utterance.pitch = 1.0;    // 正常音调
+                utterance.volume = 1.0;   // 最大音量
+                
+                // 设置事件监听
+                setupUtteranceEvents(utterance, word);
+                
+                // 开始发音
+                window.speechSynthesis.speak(utterance);
+                
+                // 更新按钮状态
+                updateSpeakingButton(word, true);
+            }
+            
+            // 设置语音事件
+            function setupUtteranceEvents(utterance, originalWord) {
+                utterance.onstart = () => {
+                    console.log(`🔊 开始朗读: ${originalWord}`);
+                    showNotification(`朗读: ${originalWord}`, 'info', 1500);
+                };
+                
+                utterance.onend = () => {
+                    console.log(`✅ 朗读完成: ${originalWord}`);
+                    updateSpeakingButton(originalWord, false);
+                };
+                
+                utterance.onerror = (event) => {
+                    console.error('朗读出错:', event);
+                    updateSpeakingButton(originalWord, false);
+                    showNotification('朗读出错，请重试', 'error');
+                };
+            }
+            
+            // 更新发音按钮状态
+            function updateSpeakingButton(word, isSpeaking) {
+                const buttons = document.querySelectorAll('.speak-btn');
+                buttons.forEach(btn => {
+                    // 通过data-word属性匹配
+                    if (btn.getAttribute('data-word') === word) {
+                        if (isSpeaking) {
+                            btn.classList.add('speaking');
+                            btn.innerHTML = '🔊<div class="sound-wave"></div>';
+                            btn.title = '朗读中...';
+                        } else {
+                            btn.classList.remove('speaking');
+                            btn.innerHTML = '🔊';
+                            btn.title = '朗读单词';
+                        }
+                    }
+                });
+            }
+            
+            // 停止所有发音
+            function stopSpeaking() {
+                if ('speechSynthesis' in window) {
+                    window.speechSynthesis.cancel();
+                    // 重置所有按钮状态
+                    document.querySelectorAll('.speak-btn').forEach(btn => {
+                        btn.classList.remove('speaking');
+                        btn.innerHTML = '🔊';
+                    });
+                }
+            }
+            // 修改 toggleLearned 和 toggleReview 函数
+            function toggleLearned(wordId, category) {
+                const word = vocabularyData[category].find(w => w.id === wordId);
+                if (word) {
+                    const wasLearned = word.learned;
+                    word.learned = !word.learned;
+                    
+                    if (word.learned) {
+                        word.needReview = false;
+                    }
+                    
+                    console.log(`📝 切换学习状态: ${word.word} - 已掌握: ${wasLearned} -> ${word.learned}`);
+                    
+                    saveProgress();
+                    
+                    // 更新统计
+                    updateStats();
+                    
+                    // 通知所有监听器
+                    notifyStatUpdate();
+                    
+                    if (appState.currentView === 'vocabulary') {
+                        renderVocabulary();
+                    }
+                }
+            }
+            
+            function toggleReview(wordId, category) {
+                const word = vocabularyData[category].find(w => w.id === wordId);
+                if (word) {
+                    const wasReview = word.needReview;
+                    word.needReview = !word.needReview;
+                    
+                    if (word.needReview) {
+                        word.learned = false;
+                    }
+                    
+                    console.log(`🔄 切换复习状态: ${word.word} - 需复习: ${wasReview} -> ${word.needReview}`);
+                    
+                    saveProgress();
+                    
+                    // 更新统计
+                    updateStats();
+                    
+                    // 通知所有监听器
+                    notifyStatUpdate();
+                    
+                    if (appState.currentView === 'vocabulary') {
+                        renderVocabulary();
+                    }
+                }
+            }
+            // 设备检测和优化
+            function getDeviceInfo() {
+                const ua = navigator.userAgent;
+                let deviceType = 'desktop';
+                let os = 'unknown';
+                let browser = 'unknown';
+                
+                // 检测操作系统
+                if (/iPhone|iPad|iPod/.test(ua)) {
+                    deviceType = /iPad/.test(ua) ? 'tablet' : 'mobile';
+                    os = 'iOS';
+                } else if (/Android/.test(ua)) {
+                    deviceType = /Mobile/.test(ua) ? 'mobile' : 'tablet';
+                    os = 'Android';
+                } else if (/Mac OS X/.test(ua)) {
+                    os = 'macOS';
+                } else if (/Windows/.test(ua)) {
+                    os = 'Windows';
+                } else if (/Linux/.test(ua)) {
+                    os = 'Linux';
+                }
+                
+                // 检测浏览器
+                if (/Chrome/.test(ua) && !/Edge/.test(ua)) {
+                    browser = 'Chrome';
+                } else if (/Safari/.test(ua) && !/Chrome/.test(ua)) {
+                    browser = 'Safari';
+                } else if (/Firefox/.test(ua)) {
+                    browser = 'Firefox';
+                } else if (/Edge/.test(ua)) {
+                    browser = 'Edge';
+                }
+                
+                console.log(`📱 设备信息: ${deviceType} | ${os} | ${browser}`);
+                
+                return { deviceType, os, browser };
+            }
+            
+            // 根据设备优化发音设置
+            function optimizeSpeechForDevice() {
+                const device = getDeviceInfo();
+                const settings = {
+                    rate: 0.75,  // 默认语速
+                    volume: 1.0
+                };
+                
+                // 根据不同设备优化
+                if (device.os === 'iOS') {
+                    // iOS设备：稍快一点，音量调低（避免太响）
+                    settings.rate = 0.8;
+                    settings.volume = 0.9;
+                    console.log('📱 iOS设备优化设置已应用');
+                } else if (device.os === 'Android') {
+                    // Android：稍慢一点，确保清晰
+                    settings.rate = 0.7;
+                    console.log('🤖 Android设备优化设置已应用');
+                }
+                
+                return settings;
+            }
+			// ==================== 核心功能函数 ====================
+			function initFilterTags() {
+				const tags = [{
+						id: 'all',
+						label: '全部'
+					},
+					{
+						id: 'high',
+						label: '高频必考'
+					},
+					{
+						id: 'command',
+						label: '指令词'
+					},
+					{
+						id: 'experiment',
+						label: '实验词汇'
+					},
+					{
+						id: 'process',
+						label: '过程描述'
+					},
+					{
+						id: 'compare',
+						label: '比较连接'
+					},
+					{
+						id: 'biology',
+						label: '生物动词'
+					},
+					{
+						id: 'learned',
+						label: '已掌握'
+					},
+					{
+						id: 'review',
+						label: '需复习'
+					}
+				];
+
+				const container = document.getElementById('filterTags');
+				container.innerHTML = tags.map(tag => `
+                <div class="filter-tag ${tag.id === 'all' ? 'active' : ''}" 
+                     data-filter="${tag.id}" 
+                     onclick="setFilter('${tag.id}')">
+                    ${tag.label}
+                </div>
+            `).join('');
+			}
+
+			function updateFilterTags(activeFilter) {
+				document.querySelectorAll('.filter-tag').forEach(tag => {
+					tag.classList.remove('active');
+					if (tag.dataset.filter === activeFilter) {
+						tag.classList.add('active');
+					}
+				});
+			}
+
+			function setFilter(filter) {
+			    appState.currentFilter = filter;
+			    appState.searchTerm = '';
+			    
+			    // 清空搜索框
+			    const searchInput = document.getElementById('searchInput');
+			    if (searchInput) searchInput.value = '';
+			    
+			    // 更新筛选标签
+			    updateFilterTags(filter);
+			    
+			    // 切换到词汇页面
+			    appState.currentView = 'vocabulary';
+			    updateNav('vocabulary');
+			    
+			    // 渲染词汇
+			    renderVocabulary();
+			}
+
+			function renderVocabulary() {
+			    console.log('=== 开始渲染词汇 ===');
+			    console.log('当前筛选器:', appState.currentFilter);
+			    console.log('搜索词:', appState.searchTerm);
+			    console.log('当前视图:', appState.currentView);
+			    
+			    const contentArea = document.getElementById('contentArea');
+			    if (!contentArea) {
+			        console.error('❌ 找不到 contentArea 元素');
+			        return;
+			    }
+			    
+			    // 显示加载中
+			    contentArea.innerHTML = '<div class="loading"><div class="spinner"></div>加载中...</div>';
+			    
+			    // 延迟渲染，确保UI更新
+			    setTimeout(() => {
+			        let vocabularyHTML = '';
+			        let hasResults = false;
+			        let totalFilteredWords = 0;
+			    
+			        console.log('当前筛选器:', appState.currentFilter);
+			        console.log('搜索词:', appState.searchTerm);
+			    
+			        // 根据当前筛选器决定显示哪些分类
+			        const categoriesToShow = getCategoriesToShow(appState.currentFilter);
+			        console.log('要显示的分类:', categoriesToShow);
+			    
+			        for (const category of categoriesToShow) {
+			            const words = vocabularyData[category] || [];
+			            console.log(`分类 "${category}" 有 ${words.length} 个词汇`);
+			    
+			            // 使用新的筛选函数
+			            const filteredWords = filterVocabulary(words, category);
+			            console.log(`分类 "${category}" 筛选后剩 ${filteredWords.length} 个词汇`);
+			            
+			            if (filteredWords.length === 0) continue;
+			    
+			            hasResults = true;
+			            totalFilteredWords += filteredWords.length;
+			    
+			            // 获取分类图标
+			            const categoryIcon = getCategoryIcon(category);
+			    
+			            vocabularyHTML += `
+			                <div style="margin-bottom: 25px;">
+			                    <h3 style="color: var(--primary); padding: 0 15px 10px; border-bottom: 2px solid var(--light);">
+			                        ${categoryIcon} ${category} (${filteredWords.length}个)
+			                    </h3>
+			                    <div class="vocab-list">
+			                        ${filteredWords.map(word => `
+			                            <div class="vocab-item-mobile" data-id="${word.id}" data-category="${category}">
+			                                <div class="vocab-header">
+			                                    <div>
+			                                        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 5px;">
+			                                            <div class="vocab-word">${word.word}</div>
+			                                            <div style="display: flex; align-items: center; gap: 5px;">
+			                                                <button onclick="speakWord('${word.word.replace(/'/g, "\\'")}')" 
+			                                                        class="speak-btn" 
+			                                                        data-word="${word.word}"
+			                                                        title="朗读单词（英式发音）"
+			                                                        style="background: rgba(93, 122, 185, 0.1); border: 2px solid rgba(93, 122, 185, 0.3); color: var(--accent); cursor: pointer; padding: 6px; font-size: 0.9rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; transition: all 0.3s;">
+			                                                    🔊
+			                                                </button>
+			                                                <span class="accent-badge" id="accent-${word.id}" style="font-size: 0.75rem; background: rgba(0, 100, 0, 0.1); color: #006400; padding: 2px 8px; border-radius: 10px; display: none;">
+			                                                    🇬🇧 英音
+			                                                </span>
+			                                            </div>
+			                                        </div>
+			                                        <div class="vocab-phonetic">${word.phonetic}</div>
+			                                        <div style="color: #666; font-size: 0.9rem; margin-top: 2px;">${word.type}</div>
+			                                    </div>
+			                                    <span class="vocab-frequency ${word.frequency}">
+			                                        ${word.frequency === 'high' ? '必考' : word.frequency === 'medium' ? '高频' : '中频'}
+			                                    </span>
+			                                </div>
+			                                <div class="vocab-definition">${word.definition}</div>
+			                                ${word.example ? `<div class="vocab-example">${word.example}</div>` : ''}
+			                                <div class="vocab-tags">
+			                                    ${word.tags ? word.tags.map(tag => `<span class="vocab-tag">${tag}</span>`).join('') : ''}
+			                                </div>
+			                                <div class="vocab-actions">
+			                                    <button class="action-btn learned ${word.learned ? 'active' : ''}" 
+			                                            onclick="toggleLearned(${word.id}, '${category}')">
+			                                        ${word.learned ? '✅ 已掌握' : '标记掌握'}
+			                                    </button>
+			                                    <button class="action-btn review ${word.needReview ? 'active' : ''}"
+			                                            onclick="toggleReview(${word.id}, '${category}')">
+			                                        ${word.needReview ? '🔄 需复习' : '标记复习'}
+			                                    </button>
+			                                </div>
+			                            </div>
+			                        `).join('')}
+			                    </div>
+			                </div>
+			            `;
+			        }
+			    
+			        console.log(`总共找到 ${totalFilteredWords} 个匹配的词汇`);
+			    
+			        if (!hasResults) {
+			            let message = '';
+			            let suggestion = '';
+			            
+			            if (appState.searchTerm) {
+			                message = `搜索词: "${appState.searchTerm}"`;
+			                suggestion = '请尝试不同的搜索词或清除搜索框';
+			            } else if (appState.currentFilter === 'learned') {
+			                message = '您还没有标记为"已掌握"的词汇';
+			                suggestion = '点击词汇卡片的"标记掌握"按钮开始记录';
+			            } else if (appState.currentFilter === 'review') {
+			                message = '您还没有标记为"需复习"的词汇';
+			                suggestion = '点击词汇卡片的"标记复习"按钮开始记录';
+			            } else if (appState.currentFilter === 'high') {
+			                message = '当前没有高频词汇';
+			                suggestion = '请检查筛选条件';
+			            } else {
+			                message = '当前分类没有词汇';
+			                suggestion = '请选择其他分类或筛选条件';
+			            }
+			    
+			            vocabularyHTML = `
+			                <div class="empty-state">
+			                    <div class="empty-icon">🔍</div>
+			                    <h4 style="color: var(--primary); margin-bottom: 10px;">未找到匹配的词汇</h4>
+			                    <p style="color: #666; margin-bottom: 10px;">${message}</p>
+			                    <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">${suggestion}</p>
+			                    <div style="display: flex; gap: 10px; justify-content: center;">
+			                        <button onclick="resetSearch()" style="padding: 10px 20px; background: var(--accent); color: white; border: none; border-radius: 8px; cursor: pointer;">
+			                            重置筛选
+			                        </button>
+			                        <button onclick="showAllVocabulary()" style="padding: 10px 20px; background: var(--light); color: var(--primary); border: 1px solid var(--border); border-radius: 8px; cursor: pointer;">
+			                            查看全部
+			                        </button>
+			                    </div>
+			                </div>
+			            `;
+			        }
+			    
+			        contentArea.innerHTML = vocabularyHTML;
+			        console.log('=== renderVocabulary() 执行完成 ===');
+			    }, 150); // 稍微增加延迟，确保调试信息清晰
+			}
+
+			function toggleLearned(wordId, category) {
+			    const word = vocabularyData[category].find(w => w.id === wordId);
+			    if (word) {
+			        const wasLearned = word.learned;
+			        word.learned = !word.learned;
+			        
+			        // 如果标记为已掌握，取消需复习状态
+			        if (word.learned) {
+			            word.needReview = false;
+			        }
+			        
+			        console.log(`📝 切换学习状态: ${word.word} - 已掌握: ${wasLearned} -> ${word.learned}`);
+			        
+			        // 保存进度
+			        saveProgress();
+			        
+			        // 立即更新统计
+			        updateStats();
+			        
+			        // 如果当前在词汇页面，重新渲染
+			        if (appState.currentView === 'vocabulary') {
+			            renderVocabulary();
+			        }
+			    }
+			}
+			
+			function toggleReview(wordId, category) {
+			    const word = vocabularyData[category].find(w => w.id === wordId);
+			    if (word) {
+			        const wasReview = word.needReview;
+			        word.needReview = !word.needReview;
+			        
+			        // 如果标记为需复习，取消已掌握状态
+			        if (word.needReview) {
+			            word.learned = false;
+			        }
+			        
+			        console.log(`🔄 切换复习状态: ${word.word} - 需复习: ${wasReview} -> ${word.needReview}`);
+			        
+			        // 保存进度
+			        saveProgress();
+			        
+			        // 立即更新统计
+			        updateStats();
+			        
+			        // 如果当前在词汇页面，重新渲染
+			        if (appState.currentView === 'vocabulary') {
+			            renderVocabulary();
+			        }
+			    }
+			}
+            // 显示需要复习的词汇
+            function showReviewVocabulary() {
+                console.log('🔄 显示需要复习的词汇');
+                
+                // 直接统计需要复习的词汇数量
+                let reviewCount = 0;
+                let reviewWords = [];
+                
+                for (const category in vocabularyData) {
+                    const words = vocabularyData[category];
+                    words.forEach(word => {
+                        if (word.needReview) {
+                            reviewCount++;
+                            reviewWords.push({
+                                ...word,
+                                category: category
+                            });
+                        }
+                    });
+                }
+                
+                console.log(`找到 ${reviewCount} 个需要复习的词汇:`, reviewWords.map(w => w.word));
+                
+                if (reviewCount === 0) {
+                    alert('📝 您目前没有需要复习的词汇\n\n请先标记一些词汇为"需复习"状态。');
+                    // 仍然显示复习页面，但内容是空的
+                }
+                
+                // 设置状态
+                appState.currentView = 'vocabulary';
+                appState.currentFilter = 'review';
+                appState.searchTerm = '';
+                
+                // 清空搜索框
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) {
+                    searchInput.value = '';
+                }
+                
+                // 更新筛选标签
+                updateFilterTags('review');
+                
+                // 确保搜索栏和筛选标签显示
+                document.getElementById('searchSection').style.display = 'block';
+                document.getElementById('filterTags').style.display = 'flex';
+                
+                // 更新导航
+                updateNav('vocabulary');
+                
+                // 显示提示信息
+                const contentArea = document.getElementById('contentArea');
+                contentArea.innerHTML = `
+                    <div style="padding: 20px; text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 15px;">🔄</div>
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">开始复习</h3>
+                        <p style="color: #666; margin-bottom: 20px;">
+                            您有 <span style="color: #FF9800; font-weight: bold;">${reviewCount}</span> 个词汇需要复习
+                        </p>
+                        <button onclick="renderVocabulary()" style="padding: 12px 24px; background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%); color: white; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; margin-bottom: 15px;">
+                            查看复习词汇
+                        </button>
+                        <p style="color: #999; font-size: 0.9rem;">
+                            提示：复习完成后，可以点击"已掌握"按钮标记为掌握
+                        </p>
+                    </div>
+                `;
+                
+                // 延迟加载词汇列表
+                setTimeout(() => {
+                    renderVocabulary();
+                }, 300);
+            }
+			// ==================== 工具函数 ====================
+			function getCategoryIcon(category) {
+				const icons = {
+					'指令词': '📝',
+					'实验词汇': '🔬',
+					'过程描述': '📈',
+					'比较连接': '🔄',
+					'生物动词': '🧬'
+				};
+				return icons[category] || '📚';
+			}
+
+			function updateNav(activeItem) {
+				document.querySelectorAll('.nav-item').forEach(item => {
+					item.classList.remove('active');
+				});
+				document.querySelectorAll('.nav-item')[getNavIndex(activeItem)].classList.add('active');
+			}
+
+			function getNavIndex(view) {
+				const views = ['home', 'categories', 'vocabulary', 'tools', 'stats'];
+				return views.indexOf(view);
+			}
+
+			// 修改搜索功能
+			function searchVocabulary() {
+				const searchInput = document.getElementById('searchInput');
+				if (!searchInput) return;
+
+				appState.searchTerm = searchInput.value.trim();
+				console.log('搜索词:', appState.searchTerm);
+
+				// 如果不在词汇页面，先切换到词汇页面
+				if (appState.currentView !== 'vocabulary') {
+					appState.currentView = 'vocabulary';
+					updateNav('vocabulary');
+				}
+
+				// 重置筛选器为全部，以便搜索所有词汇
+				appState.currentFilter = 'all';
+				updateFilterTags('all');
+
+				// 渲染词汇
+				renderVocabulary();
+			}
+
+			// 修改搜索框输入事件（如果已有）
+			const searchInput = document.getElementById('searchInput');
+			if (searchInput) {
+				// 移除旧的input监听器（如果有）
+				searchInput.removeEventListener('input', searchInput.oldHandler);
+
+				// 添加新的input监听器
+				searchInput.oldHandler = function(e) {
+					appState.searchTerm = e.target.value;
+					if (appState.currentView === 'vocabulary') {
+						renderVocabulary();
+					}
+				};
+				searchInput.addEventListener('input', searchInput.oldHandler);
+
+				// 添加回车键搜索
+				searchInput.addEventListener('keypress', function(e) {
+					if (e.key === 'Enter') {
+						searchVocabulary();
+					}
+				});
+			}
+
+			function resetSearch() {
+			    console.log('重置搜索和筛选');
+			    
+			    appState.searchTerm = '';
+			    appState.currentFilter = 'all';
+			    
+			    // 清空搜索框
+			    const searchInput = document.getElementById('searchInput');
+			    if (searchInput) {
+			        searchInput.value = '';
+			    }
+			    
+			    // 更新筛选标签
+			    updateFilterTags('all');
+			    
+			    // 渲染词汇
+			    renderVocabulary();
+			}
+
+			// ==================== 进度管理 ====================
+			function saveProgress() {
+			    console.log('💾 保存学习进度');
+			    const progress = {};
+			    let savedCount = 0;
+			    
+			    for (const category in vocabularyData) {
+			        progress[category] = vocabularyData[category].map(word => {
+			            savedCount++;
+			            return {
+			                id: word.id,
+			                learned: word.learned,
+			                needReview: word.needReview
+			            };
+			        });
+			    }
+			    
+			    localStorage.setItem('igcse_vocab_progress', JSON.stringify(progress));
+			    console.log(`✅ 已保存 ${savedCount} 个词汇的学习进度`);
+			}
+
+			function loadProgress() {
+			    console.log('📂 加载学习进度');
+			    const saved = localStorage.getItem('igcse_vocab_progress');
+			    if (saved) {
+			        try {
+			            const progress = JSON.parse(saved);
+			            let loadedCount = 0;
+			            
+			            for (const category in progress) {
+			                if (vocabularyData[category]) {
+			                    progress[category].forEach(prog => {
+			                        const word = vocabularyData[category].find(w => w.id === prog.id);
+			                        if (word) {
+			                            word.learned = prog.learned || false;
+			                            word.needReview = prog.needReview || false;
+			                            loadedCount++;
+			                        }
+			                    });
+			                }
+			            }
+			            
+			            console.log(`✅ 成功加载 ${loadedCount} 个词汇的学习进度`);
+			            
+			            // 加载完成后立即更新统计
+			            updateStats();
+			            
+			        } catch (e) {
+			            console.error('❌ 加载进度失败:', e);
+			        }
+			    } else {
+			        console.log('ℹ️ 没有找到保存的学习进度');
+			    }
+			}
+
+			function updateStats() {
+			    console.log('📊 updateStats() 被调用');
+			    
+			    let learnedCount = 0;
+			    let reviewCount = 0;
+			    let totalWords = 0;
+			
+			    // 遍历所有词汇统计
+			    for (const category in vocabularyData) {
+			        const words = vocabularyData[category];
+			        totalWords += words.length;
+			        
+			        words.forEach(word => {
+			            if (word.learned) learnedCount++;
+			            if (word.needReview) reviewCount++;
+			        });
+			    }
+			
+			    console.log(`统计结果：已掌握=${learnedCount}，需复习=${reviewCount}`);
+			
+			    // 更新所有统计显示元素（使用更可靠的方法）
+			    updateStatElement('learnedCount', learnedCount);
+			    updateStatElement('reviewCount', reviewCount);
+			    
+			    // 更新复习按钮的徽章
+			    updateReviewBadge(reviewCount);
+			
+			    // 如果当前在统计页面，更新详细统计
+			    if (appState.currentView === 'stats') {
+			        updateStatsPage(learnedCount, reviewCount, totalWords);
+			    }
+			}
+			
+			// 辅助函数：更新统计元素
+			function updateStatElement(elementId, value) {
+			    // 通过ID查找
+			    let element = document.getElementById(elementId);
+			    if (element) {
+			        element.textContent = value;
+			    }
+			    
+			    // 通过data-stat属性查找
+			    document.querySelectorAll(`[data-stat="${elementId}"]`).forEach(el => {
+			        el.textContent = value;
+			    });
+			    
+			    // 查找所有可能包含统计数字的元素
+			    const possibleSelectors = [
+			        `.stat-number:contains("已掌握")`,
+			        `.stat-number:contains("需复习")`
+			    ];
+			}
+			
+			// 辅助函数：更新复习徽章
+			function updateReviewBadge(count) {
+			    const badges = [
+			        document.getElementById('reviewCountBadge'),
+			        ...document.querySelectorAll('[data-review-badge]')
+			    ];
+			    
+			    badges.forEach(badge => {
+			        if (badge) {
+			            badge.textContent = count;
+			            if (count === 0) {
+			                badge.style.background = 'rgba(0,0,0,0.1)';
+			                badge.style.color = '#666';
+			            } else {
+			                badge.style.background = 'rgba(255,255,255,0.3)';
+			                badge.style.color = 'white';
+			            }
+			        }
+			    });
+			}
+			
+			// 新增：专门更新统计页面的函数
+			function updateStatsPage(learnedCount, reviewCount, totalWords) {
+			    const progressPercent = totalWords > 0 ? Math.round((learnedCount / totalWords) * 100) : 0;
+			    
+			    const content = `
+			        <div style="padding: 15px;">
+			            <h3 style="color: var(--primary); margin-bottom: 20px;">📊 学习统计</h3>
+			            
+			            <div class="stats-grid">
+			                <div class="stat-card">
+			                    <div class="stat-number">${totalWords}</div>
+			                    <div class="stat-label">总词汇数</div>
+			                </div>
+			                <div class="stat-card">
+			                    <div class="stat-number">${learnedCount}</div>
+			                    <div class="stat-label">已掌握</div>
+			                </div>
+			                <div class="stat-card">
+			                    <div class="stat-number">${reviewCount}</div>
+			                    <div class="stat-label">需复习</div>
+			                </div>
+			                <div class="stat-card">
+			                    <div class="stat-number">${progressPercent}%</div>
+			                    <div class="stat-label">学习进度</div>
+			                </div>
+			            </div>
+			            
+			            <div style="margin-top: 30px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+			                <h4 style="color: var(--primary); margin-bottom: 15px;">📈 进度详情</h4>
+			                ${generateCategoryProgressBars()}
+			            </div>
+			            
+			            <div style="margin-top: 20px; text-align: center;">
+			                <button onclick="resetProgress()" style="padding: 12px 24px; background: #ffebee; color: #c62828; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; margin-right: 10px;">
+			                    🔄 重置学习进度
+			                </button>
+			                <button onclick="showReviewVocabulary()" style="padding: 12px 24px; background: #fff3e0; color: #ef6c00; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+			                    📚 开始复习
+			                </button>
+			            </div>
+			        </div>
+			    `;
+			
+			    document.getElementById('contentArea').innerHTML = content;
+			}
+			
+			// 新增：生成分类进度条的函数
+			function generateCategoryProgressBars() {
+			    let html = '';
+			    const categories = ['指令词', '实验词汇', '过程描述', '比较连接', '生物动词'];
+			    
+			    categories.forEach(category => {
+			        const words = vocabularyData[category] || [];
+			        const learned = words.filter(w => w.learned).length;
+			        const review = words.filter(w => w.needReview).length;
+			        const total = words.length;
+			        const learnedPercent = total > 0 ? Math.round((learned / total) * 100) : 0;
+			        const reviewPercent = total > 0 ? Math.round((review / total) * 100) : 0;
+			        
+			        html += `
+			            <div style="margin-bottom: 15px;">
+			                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+			                    <span>${getCategoryIcon(category)} ${category}</span>
+			                    <span>${learned}/${total} 掌握</span>
+			                </div>
+			                <div style="height: 8px; background: var(--light); border-radius: 4px; overflow: hidden; margin-bottom: 5px; position: relative;">
+			                    <div style="height: 100%; width: ${learnedPercent}%; background: var(--accent); border-radius: 4px;"></div>
+			                    <div style="height: 100%; width: ${reviewPercent}%; background: #FF9800; border-radius: 4px; position: absolute; top: 0; left: 0;"></div>
+			                </div>
+			                <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #666;">
+			                    <span>🟦 已掌握: ${learnedPercent}%</span>
+			                    <span>🟧 需复习: ${reviewPercent}%</span>
+			                    <span>⬜ 未学习: ${100 - learnedPercent - reviewPercent}%</span>
+			                </div>
+			            </div>
+			        `;
+			    });
+			    
+			    return html;
+			}
+
+			function getCategoryProgress(category) {
+				const words = vocabularyData[category] || [];
+				const learned = words.filter(w => w.learned).length;
+				return `${learned}/${words.length}`;
+			}
+
+			function getCategoryPercent(category) {
+				const words = vocabularyData[category] || [];
+				if (words.length === 0) return 0;
+				const learned = words.filter(w => w.learned).length;
+				return Math.round((learned / words.length) * 100);
+			}
+
+			// ==================== 工具功能 ====================
+			function downloadWord() {
+				alert('📥 Word文档导出功能\n\n请使用电脑浏览器访问此页面，点击顶部下载按钮获取完整Word文档。');
+			}
+
+			function printVocabulary() {
+				window.print();
+			}
+
+			function exportForAnki() {
+				let ankiContent = '';
+				for (const [category, words] of Object.entries(vocabularyData)) {
+					words.forEach(word => {
+						ankiContent += `${word.word}\t${word.definition}\t${word.example || ''}\n`;
+					});
+				}
+
+				// 在移动端显示内容让用户复制
+				const content = ankiContent.slice(0, 1000) + (ankiContent.length > 1000 ? '...\n\n(内容过长，显示前1000个字符)' : '');
+				alert('📱 Anki导入内容已复制到剪贴板\n\n请打开Anki，点击"导入文件"，粘贴此内容。\n\n提示：确保分隔符设置为Tab。');
+
+				// 尝试复制到剪贴板
+				if (navigator.clipboard) {
+					navigator.clipboard.writeText(ankiContent).then(() => {
+						console.log('内容已复制到剪贴板');
+					});
+				}
+			}
+
+			function showStudyPlan() {
+				alert(
+					'📅 21天学习计划\n\n第1-3天：指令词 (15个)\n第4-7天：实验词汇 (32个)\n第8-11天：过程描述 (28个)\n第12-14天：比较连接 (22个)\n第15-21天：生物动词 (90个)\n\n每天学习9-10个词汇，周末复习。'
+					);
+			}
+
+			function resetProgress() {
+				if (confirm('确定要重置所有学习进度吗？')) {
+					for (const category in vocabularyData) {
+						vocabularyData[category].forEach(word => {
+							word.learned = false;
+							word.needReview = false;
+						});
+					}
+					localStorage.removeItem('igcse_vocab_progress');
+					updateStats();
+					if (appState.currentView === 'vocabulary') {
+						renderVocabulary();
+					}
+					alert('学习进度已重置！');
+				}
+			}
+
+			function exportProgress() {
+				const progress = {
+					date: new Date().toISOString(),
+					learned: [],
+					needReview: []
+				};
+
+				for (const category in vocabularyData) {
+					vocabularyData[category].forEach(word => {
+						if (word.learned) progress.learned.push({
+							word: word.word,
+							category: category
+						});
+						if (word.needReview) progress.needReview.push({
+							word: word.word,
+							category: category
+						});
+					});
+				}
+
+				const content = JSON.stringify(progress, null, 2);
+				alert('📊 学习进度已生成\n\n请复制以下内容保存：\n\n' + content);
+			}
+
+			function toggleDarkMode() {
+				appState.darkMode = !appState.darkMode;
+				document.body.classList.toggle('dark-mode', appState.darkMode);
+				localStorage.setItem('darkMode', appState.darkMode);
+			}
+
+			function checkDarkMode() {
+				const saved = localStorage.getItem('darkMode');
+				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				appState.darkMode = saved ? saved === 'true' : prefersDark;
+				if (appState.darkMode) {
+					document.body.classList.add('dark-mode');
+				}
+			}
+
+			// ==================== 移动端优化功能 ====================
+			// 防止iOS橡皮筋效果
+			document.body.addEventListener('touchmove', function(e) {
+				if (e.target.classList.contains('filter-tags-mobile')) {
+					e.preventDefault();
+				}
+			}, {
+				passive: false
+			});
+
+			// 双击顶部返回
+			let lastTap = 0;
+			document.querySelector('.mobile-header').addEventListener('touchend', function(e) {
+				const currentTime = new Date().getTime();
+				const tapLength = currentTime - lastTap;
+				if (tapLength < 500 && tapLength > 0) {
+					scrollToTop();
+				}
+				lastTap = currentTime;
+			});
+
+			function scrollToTop() {
+				window.scrollTo({
+					top: 0,
+					behavior: 'smooth'
+				});
+			}
+
+			// 页面可见性变化时保存进度
+			document.addEventListener('visibilitychange', function() {
+				if (document.hidden) {
+					saveProgress();
+				}
+			});
+
+			// 页面卸载前保存进度
+			window.addEventListener('beforeunload', function() {
+				saveProgress();
+			});
+
+			// 初始化完成提示
+			setTimeout(() => {
+				if (localStorage.getItem('firstVisit') === null) {
+					alert('欢迎使用IGCSE生物高频词汇学习应用！\n\n提示：学习进度会自动保存，支持离线使用。');
+					localStorage.setItem('firstVisit', 'true');
+				}
+			}, 1000);
+			// ==================== 新增的辅助函数 ====================
+
+			// 获取分类对应的筛选ID
+			function getFilterIdForCategory(category) {
+			    const map = {
+			        '指令词': 'command',
+			        '实验词汇': 'experiment',
+			        '过程描述': 'process',
+			        '比较连接': 'compare',
+			        '生物动词': 'biology'
+			    };
+			    return map[category] || 'all';
+			}
+
+			// 根据筛选器获取要显示的分类
+			function getCategoriesToShow(filter) {
+			    console.log('getCategoriesToShow() 被调用，筛选器:', filter);
+			    
+			    const filterMap = {
+			        'all': ['指令词', '实验词汇', '过程描述', '比较连接', '生物动词'],
+			        'command': ['指令词'],
+			        'experiment': ['实验词汇'],
+			        'process': ['过程描述'],
+			        'compare': ['比较连接'],
+			        'biology': ['生物动词'],
+			        'high': ['指令词', '实验词汇', '过程描述', '比较连接', '生物动词'],
+			        'learned': ['指令词', '实验词汇', '过程描述', '比较连接', '生物动词'],
+			        'review': ['指令词', '实验词汇', '过程描述', '比较连接', '生物动词']
+			    };
+			    
+			    const result = filterMap[filter] || filterMap['all'];
+			    console.log('将显示的分类:', result);
+			    return result;
+			}
+			// 测试搜索功能
+			function testSearch() {
+				console.log('=== 测试搜索功能 ===');
+
+				// 检查词汇数据中是否有 photosynthesize
+				let found = false;
+				for (const category in vocabularyData) {
+					vocabularyData[category].forEach(word => {
+						if (word.word.toLowerCase().includes('photosynthesize') ||
+							word.word.toLowerCase().includes('photosynthesis')) {
+							console.log(`找到: ${word.word} (在${category}中)`);
+							found = true;
+						}
+					});
+				}
+
+				if (!found) {
+					console.log('未找到 photosynthesize 或 photosynthesis');
+					console.log('可用词汇示例:');
+					for (const category in vocabularyData) {
+						if (vocabularyData[category].length > 0) {
+							console.log(`${category} 第一个词: ${vocabularyData[category][0].word}`);
+							break;
+						}
+					}
+				}
+			}
+
+			// 页面加载后运行测试
+			setTimeout(testSearch, 2000);
+		</script>
+		<!-- 在 </body> 前添加 -->
+		<div style="position: fixed; bottom: 80px; right: 20px; z-index: 9999;">
+			<button onclick="runTests()"
+				style="padding: 10px; background: #4CAF50; color: white; border: none; border-radius: 50%; font-size: 20px;">
+				🧪
+			</button>
+		</div>
+
+		<script>
+			// 调试用：强制重新统计
+			function forceUpdateStats() {
+			    console.log('🔄 强制更新统计');
+			    updateStats();
+			    
+			    // 显示详细统计信息
+			    let learned = 0, review = 0, total = 0;
+			    for (const category in vocabularyData) {
+			        vocabularyData[category].forEach(word => {
+			            total++;
+			            if (word.learned) learned++;
+			            if (word.needReview) review++;
+			        });
+			    }
+			    
+			    console.log(`详细统计：
+			    - 总词汇数: ${total}
+			    - 已掌握: ${learned}
+			    - 需复习: ${review}
+			    - 已掌握比例: ${Math.round((learned/total)*100)}%
+			    - 需复习比例: ${Math.round((review/total)*100)}%`);
+			    
+			    // 检查localStorage
+			    const saved = localStorage.getItem('igcse_vocab_progress');
+			    console.log('localStorage 数据:', saved ? JSON.parse(saved) : '空');
+			}
+			// 测试函数
+			// ==================== 测试函数 ====================
+			function runQuickTest() {
+			    console.log('🧪 运行快速测试...');
+			    
+			    // 测试1: 显示全部词汇
+			    console.log('测试1: 显示全部词汇');
+			    showAllVocabulary();
+			    
+			    setTimeout(() => {
+			        // 测试2: 搜索 "State"
+			        console.log('测试2: 搜索 "State"');
+			        appState.searchTerm = 'State';
+			        renderVocabulary();
+			        
+			        setTimeout(() => {
+			            // 测试3: 显示指令词分类
+			            console.log('测试3: 显示指令词分类');
+			            appState.searchTerm = '';
+			            showCategoryVocabulary('指令词');
+			            
+			            setTimeout(() => {
+			                // 测试4: 测试筛选标签
+			                console.log('测试4: 点击高频必考筛选');
+			                setFilter('high');
+			                
+			                console.log('✅ 测试完成，请检查控制台输出');
+			            }, 1000);
+			        }, 1000);
+			    }, 1000);
+			}
+			
+			// 页面加载后自动运行测试（可选）
+			// setTimeout(runQuickTest, 3000);
+			
+		</script>
+	</body>
+</html>
